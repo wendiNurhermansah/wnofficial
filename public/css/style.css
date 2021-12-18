@@ -1,0 +1,85 @@
+/* Image Preview */
+.btn-tertiary {
+    display: block;
+    width: 100%;
+    height: calc(1.6em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;  
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #F5F8FA;
+    background-clip: padding-box;
+    border: 1px solid #E1E8EE;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-tertiary:hover,
+.btn-tertiary:focus {
+    color: #888;
+    border-color: #9AD4F1
+}
+
+.input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.input-file+.js-labelFile {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.input-file1 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.input-file1+.js-labelFile1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.input-file2 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.input-file2+.js-labelFile2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.img-circular{
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal{
+    animation-name: modal;
+    animation-duration: 1s;
+}
+@keyframes modal {
+    0%   {transform: rotateX(90deg);}
+    100%  {transform: rotateX(0deg);}
+}

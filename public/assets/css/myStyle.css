@@ -1,0 +1,277 @@
+.form-inline input,
+select,
+textarea {
+    margin-bottom: 5px;
+}
+
+table.data-table {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important
+}
+
+table.data-table td,
+table.data-table th {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+table.data-table td.data-tables_empty,
+table.data-table th.data-tables_empty {
+    text-align: center
+}
+
+table.data-table.nowrap td,
+table.data-table.nowrap th {
+    white-space: nowrap
+}
+
+div.data-tables_wrapper div.data-tables_length label {
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap
+}
+
+div.data-tables_wrapper div.data-tables_length select {
+    width: 75px;
+    display: inline-block
+}
+
+div.data-tables_wrapper div.data-tables_filter {
+    text-align: right
+}
+
+div.data-tables_wrapper div.data-tables_filter label {
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: left
+}
+
+div.data-tables_wrapper div.data-tables_filter input {
+    margin-left: .5em;
+    display: inline-block;
+    width: auto
+}
+
+div.data-tables_wrapper div.data-tables_info {
+    padding-top: .85em;
+    white-space: nowrap
+}
+
+div.data-tables_wrapper div.data-tables_paginate {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right
+}
+
+div.data-tables_wrapper div.data-tables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end
+}
+
+div.data-tables_wrapper div.data-tables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0
+}
+
+table.data-table thead>tr>td.sorting,
+table.data-table thead>tr>td.sorting_asc,
+table.data-table thead>tr>td.sorting_desc,
+table.data-table thead>tr>th.sorting,
+table.data-table thead>tr>th.sorting_asc,
+table.data-table thead>tr>th.sorting_desc {
+    padding-right: 30px
+}
+
+table.data-table thead>tr>td:active,
+table.data-table thead>tr>th:active {
+    outline: 0
+}
+
+table.data-table thead .sorting,
+table.data-table thead .sorting_asc,
+table.data-table thead .sorting_asc_disabled,
+table.data-table thead .sorting_desc,
+table.data-table thead .sorting_desc_disabled {
+    cursor: pointer;
+    position: relative
+}
+
+table.data-table thead .sorting:after,
+table.data-table thead .sorting:before,
+table.data-table thead .sorting_asc:after,
+table.data-table thead .sorting_asc:before,
+table.data-table thead .sorting_asc_disabled:after,
+table.data-table thead .sorting_asc_disabled:before,
+table.data-table thead .sorting_desc:after,
+table.data-table thead .sorting_desc:before,
+table.data-table thead .sorting_desc_disabled:after,
+table.data-table thead .sorting_desc_disabled:before {
+    position: absolute;
+    bottom: .9em;
+    display: block;
+    opacity: .3
+}
+
+table.data-table thead .sorting:before,
+table.data-table thead .sorting_asc:before,
+table.data-table thead .sorting_asc_disabled:before,
+table.data-table thead .sorting_desc:before,
+table.data-table thead .sorting_desc_disabled:before {
+    right: 1em;
+    content: "\2191"
+}
+
+table.data-table thead .sorting:after,
+table.data-table thead .sorting_asc:after,
+table.data-table thead .sorting_asc_disabled:after,
+table.data-table thead .sorting_desc:after,
+table.data-table thead .sorting_desc_disabled:after {
+    right: .5em;
+    content: "\2193"
+}
+
+table.data-table thead .sorting_asc:before,
+table.data-table thead .sorting_desc:after {
+    opacity: 1
+}
+
+table.data-table thead .sorting_asc_disabled:before,
+table.data-table thead .sorting_desc_disabled:after {
+    opacity: 0
+}
+
+div.data-tables_scrollHead table.data-table {
+    margin-bottom: 0 !important
+}
+
+div.data-tables_scrollBody table {
+    border-top: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important
+}
+
+div.data-tables_scrollBody table thead .sorting:after,
+div.data-tables_scrollBody table thead .sorting_asc:after,
+div.data-tables_scrollBody table thead .sorting_desc:after {
+    display: none
+}
+
+div.data-tables_scrollBody table tbody tr:first-child td,
+div.data-tables_scrollBody table tbody tr:first-child th {
+    border-top: none
+}
+
+div.data-tables_scrollFoot>.data-tables_scrollFootInner {
+    box-sizing: content-box
+}
+
+div.data-tables_scrollFoot>.data-tables_scrollFootInner>table {
+    margin-top: 0 !important;
+    border-top: none
+}
+
+@media screen and (max-width:767px) {
+
+    div.data-tables_wrapper div.data-tables_filter,
+    div.data-tables_wrapper div.data-tables_info,
+    div.data-tables_wrapper div.data-tables_length,
+    div.data-tables_wrapper div.data-tables_paginate {
+        text-align: center
+    }
+}
+
+table.data-table.table-sm>thead>tr>th {
+    padding-right: 20px
+}
+
+table.data-table.table-sm .sorting:before,
+table.data-table.table-sm .sorting_asc:before,
+table.data-table.table-sm .sorting_desc:before {
+    top: 5px;
+    right: .85em
+}
+
+table.data-table.table-sm .sorting:after,
+table.data-table.table-sm .sorting_asc:after,
+table.data-table.table-sm .sorting_desc:after {
+    top: 5px
+}
+
+table.table-bordered.data-table td,
+table.table-bordered.data-table th {
+    border-left-width: 0
+}
+
+table.table-bordered.data-table td:last-child,
+table.table-bordered.data-table th:last-child {
+    border-right-width: 0
+}
+
+table.table-bordered.data-table tbody td,
+table.table-bordered.data-table tbody th {
+    border-bottom-width: 0
+}
+
+div.data-tables_scrollHead table.table-bordered {
+    border-bottom-width: 0
+}
+
+div.table-responsive>div.data-tables_wrapper>div.row {
+    margin: 0
+}
+
+div.table-responsive>div.data-tables_wrapper>div.row>div[class^=col-]:first-child {
+    padding-left: 0
+}
+
+div.table-responsive>div.data-tables_wrapper>div.row>div[class^=col-]:last-child {
+    padding-right: 0
+}
+
+.table-responsive .container-fluid {
+    padding: 0px
+}
+
+.table td,
+.table th {
+    padding: .35rem
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+    margin-bottom: 0px
+}
+
+.xdsoft_datetimepicker {
+    z-index: 99999
+}
+
+.list-group-item {
+    padding: .3rem 1.25rem
+}
+
+.custom-control-label::after,
+.custom-control-label::before {
+    top: 0px !important
+}
+
+.dt-buttons,
+.dataTables_info {
+    position: relative;
+    float: left;
+}
+
+.formFilter.active .card-body {
+    background-color: #f7f1cc;
+    border-radius: .25rem .25rem 0 0
+}
