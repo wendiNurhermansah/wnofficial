@@ -36,7 +36,56 @@ class Tambah_orderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+          'kode' => 'required',
+          'nama' => 'required',
+          'no_hp' => 'required|max: 12',
+          'alamat' => 'required',
+          
+          
+          'tanggal_order' => 'required',
+          'estimasi' => 'required',
+          'jenis_pemesanan' => 'required',
+          'kuantiti' => 'required',
+          'status' => 'required',
+        
+          
+      ]);
+
+        $file = $request->file('gambar');
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $request->file('gambar')->move("assets/img/design/", $nama_file);
+
+       Order::create([
+        'kode' => $request->kode,
+        'nama' => $request->nama,
+        'no_hp' => $request->no_hp,
+        'alamat' => $request->alamat,
+        'harga_vendor' => $request->harga_vendor,
+        'harga_wn' => $request->harga_wn,
+        'tanggal_order' => $request->tanggal_order,
+        'estimasi' => $request->estimasi,
+        'jenis_pemesanan' => $request->jenis_pemesanan,
+        'kuantiti' => $request->kuantiti,
+        'jumlah_panjang' => $request->jumlah_panjang,
+        'jumlah_pendek' => $request->jumlah_pendek,
+        'status' => $request->status,
+        'dp' => $request->dp,
+        'ket' => $request->ket,
+        'total' => $request->total,
+        'total_kotor' => $request->total_kotor,
+        'qty_anak' => $request->qty_anak,
+        'qty_dewasa' => $request->qty_dewasa,
+        'harga_vendor_anak' => $request->harga_vendor_anak,
+        'harga_anak' => $request->harga_anak,
+        'gambar' => $nama_file,
+
+      ]);
+
+       return response()->json([
+          'message' => 'data berhasil di simpan.'
+      ]);
+      
     }
 
     /**

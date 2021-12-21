@@ -14,7 +14,7 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigInteger('id')->nullable()->default(1);
+            $table->id();
             $table->string('kode', 20);
             $table->string('nama', 191);
             $table->string('gambar', 191);
@@ -31,6 +31,12 @@ class CreateOrdersTable extends Migration
             $table->string('status',191);
             $table->string('ket',191);
             $table->string('dp', 191);
+            $table->string('total', 191);
+            $table->string('total_kotor', 191);
+            $table->string('qty_dewasa', 191);
+            $table->string('qty_anak', 191);
+            $table->string('harga_vendor_anak', 191);
+            $table->string('harga_anak', 191);
             $table->timestamps();
         });
     }

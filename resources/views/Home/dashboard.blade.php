@@ -28,8 +28,8 @@
                             <div class="float-right">
                                 <span class="icon icon-list  s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Jumlah Orderan</strong></div>
-                            <h5 class="sc-counter mt-3">2000</h5>
+                            <div class="counter-title"><strong>Jumlah Seluruh Orderan</strong></div>
+                            <h5 class="sc-counter mt-3">{{$jumlah_order}}</h5>
                             <div class="counter-title">Pcs</div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <div class="float-right">
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Untung Bersih</strong></div>
+                            <div class="counter-title"><strong>Laba Bersih</strong></div>
                             <h5 class="sc-counter mt-3">1000</h5
                         </div>
                     </div>

@@ -37,7 +37,13 @@ class OrderController extends Controller
             })
 
             ->editColumn('status', function($p){
-                return "<button type='button' class='btn btn-outline-success btn-sm'>Lunas</button>";
+
+                if ($p->status == 0) {
+                    return "<button type='button' class='btn btn-outline-danger btn-sm'>Belum Lunas</button>";
+                }else{
+
+                    return "<button type='button' class='btn btn-outline-success btn-sm'>Lunas</button>";
+                }
             })
 
 
@@ -76,7 +82,7 @@ class OrderController extends Controller
     public function show($id)
     {
 
-        $order = Order::findOrFail($id);
+        $order = Order::find($id);
         // dd($order);
         return view('pesanan.show', compact('order'));
     }

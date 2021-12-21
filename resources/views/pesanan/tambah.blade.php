@@ -26,6 +26,7 @@
             <div class="tab-pane animated fadeInUpShort show active" id="semua-data" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
+                    <div id="alert"></div>
                         <div class="card">
                             <h6 class="card-header"><strong>Data Pemesan</strong></h6>
                             <div class="card-body">
@@ -59,17 +60,26 @@
 
                                                 <div class="form-group mt-3">
                                                     <label for="no_hp" class="col-form-label s-12 ">Alamat <span class="text-danger ml-1">*</span></label>
-                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="alamat" id="alamat" cols="5" rows="5"></textarea>
+                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="alamat" id="alamat" cols="5" rows="5" required></textarea>
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="harga_vendor" class="col-form-label s-12 ">Harga Vendor <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <label for="harga_vendor" class="col-form-label s-12 ">Harga Vendor </label>
+                                                    <input type="text" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
+                                                </div>
+                                                <div class="form-group mt-3">
+                                                    <label for="harga_vendor_anak" class="col-form-label s-12 ">Harga Vendor Anak </label>
+                                                    <input type="text" name="harga_vendor_anak" id="harga_vendor_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="harga_wnx" class="col-form-label s-12 ">Harga Consumen <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="harga_wnx" id="harga_wnx" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <label for="harga_wn" class="col-form-label s-12 ">Harga Consumen <span class="text-danger ml-1">*</span></label>
+                                                    <input type="text" name="harga_wn" id="harga_wn" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="harga_anak" class="col-form-label s-12 ">Harga anak <span class="text-danger ml-1">*</span></label>
+                                                    <input type="text" name="harga_anak" id="harga_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
@@ -81,20 +91,11 @@
                                                     <label for="estimasi" class="col-form-label s-12 ">Estimasi selesai <span class="text-danger ml-1">*</span></label>
                                                     <input type="date" name="estimasi" id="estimasi" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
-                                                
-                                            </div>
 
-                                            <div class="col-md-6">
-
-                                                <div class="form-group mt-0">
-                                                    <label for="gambar" class="col-form-label s-12 ">Design <span class="text-danger ml-1">*</span></label>
-                                                    <input type="file" name="gambar" id="gambar" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
-                                                </div>
-                                                
                                                 <div class="form-group m-3">
                                                     <label class="col-form-label s-12 ">Jenis Pesanan <span class="text-danger ml-1">*</span></label>
                                                     <div class="col-md-12 p-0 bg-light">
-                                                        <select class="select2 form-control r-0 light s-12" name="jenis_pemesanan" id="jenis_pemesanan" autocomplete="off">
+                                                        <select class="select2 form-control r-0 light s-12" name="jenis_pemesanan" id="jenis_pemesanan" autocomplete="off" required>
                                                             <option value="">Pilih :</option>
                                                             <option value="KAOS/T-SHIRT">KAOS / T-SHIRT</option>
                                                             <option value="KEMEJA">KEMEJA</option>
@@ -107,36 +108,68 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group mt-3">
-                                                    <label for="kuantiti" class="col-form-label s-12 ">Jumlah <span class="text-danger ml-1">*</span></label>
-                                                    <input type="number" name="kuantiti" id="kuantiti" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
-                                                </div>
-
-                                                <div class="form-group mt-3">
-                                                    <label for="jumlah_panjang" class="col-form-label s-12 ">Tangan Panjang <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="jumlah_panjang" id="jumlah_panjang" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
-                                                </div>
-
-                                                <div class="form-group mt-3">
-                                                    <label for="jumlah_pendek" class="col-form-label s-12 ">Tangan Pendek <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="jumlah_pendek" id="jumlah_pendek" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
-                                                </div>
-
-                                                <div class="form-group mt-3">
-                                                    <label for="dp" class="col-form-label s-12 ">Uang Muka <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="dp" id="dp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
-                                                </div>
-
                                                 <div class="form-group m-3">
                                                     <label class="col-form-label s-12">Status Pesanan <span class="text-danger ml-1">*</span></label>
                                                     <div class="col-md-12 p-0 bg-light">
-                                                        <select class="select2 form-control r-0 light s-12" name="status" id="status" autocomplete="off">
+                                                        <select class="select2 form-control r-0 light s-12" name="status" id="status" autocomplete="off" required>
                                                             <option value="">Pilih :</option>
                                                             <option value="0">Belum Lunas</option>
                                                             <option value="1">Lunas</option>
                                                            
                                                         </select>
                                                     </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group mt-0">
+                                                    <label for="gambar" class="col-form-label s-12 ">Design <span class="text-danger ml-1">*</span></label>
+                                                    <input type="file" name="gambar" id="gambar" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
+                                                </div>
+                                                
+                                                
+
+                                                <div class="form-group mt-3">
+                                                    <label for="kuantiti" class="col-form-label s-12 ">Jumlah <span class="text-danger ml-1">*</span></label>
+                                                    <input type="number" name="kuantiti" id="kuantiti" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="jumlah_panjang" class="col-form-label s-12 ">Tangan Panjang </label>
+                                                    <input type="number" name="jumlah_panjang" id="jumlah_panjang" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="jumlah_pendek" class="col-form-label s-12 ">Tangan Pendek </label>
+                                                    <input type="number" name="jumlah_pendek" id="jumlah_pendek" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+                                                <div class="form-group mt-3">
+                                                    <label for="qty_dewasa" class="col-form-label s-12 ">Jumlah Dewasa </label>
+                                                    <input type="number" name="qty_dewasa" id="qty_dewasa" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="qty_anak" class="col-form-label s-12 ">Jumlah Anak </label>
+                                                    <input type="number" name="qty_anak" id="qty_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="dp" class="col-form-label s-12 ">Uang Muka <span class="text-danger ml-1">*</span></label>
+                                                    <input type="text" name="dp" id="dp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                
+
+                                                <div class="form-group mt-3">
+                                                    <label for="total_kotor" class="col-form-label s-12 ">Total ke vendor <span class="text-danger ml-1">*</span></label>
+                                                    <input type="text" name="total_kotor" id="total_kotor" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                </div>
+
+                                                <div class="form-group mt-3">
+                                                    <label for="total" class="col-form-label s-12 ">Total Ke Konsumen<span class="text-danger ml-1">*</span></label>
+                                                    <input type="text" name="total" id="total" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
@@ -168,4 +201,63 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section ('script')
+
+<script type="text/javascript">
+
+function add(){
+        save_method = "add";
+        $('#form').trigger('reset');
+        $('#formTitle').html('Tambah Data');
+        $('input[name=_method]').val('POST');
+        $('#txtAction').html('');
+        $('#reset').show();
+        $('#preview').attr({ 'src': '-', 'alt': ''});
+        $('#changeText').html('Browse Image')
+        $('#username').focus();
+    }
+
+    add();
+    $('#form').on('submit', function (e) {
+        if ($(this)[0].checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        else{
+            $('#alert').html('');
+            url = "{{ route('MasterPesanan.tambah_order.store') }}",
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data: new FormData(($(this)[0])),
+                contentType: false,
+                processData: false,
+                success : function(data) {
+                    add();
+                    console.log(data);
+                    $('#alert').html("<div role='alert' class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Success!</strong> " + data.message + "</div>");
+                    // table.api().ajax.reload();
+                  
+                },
+                error : function(data){
+                    err = '';
+                    respon = data.responseJSON;
+                    if(respon.errors){
+                        $.each(respon.errors, function( index, value ) {
+                            err = err + "<li>" + value +"</li>";
+                        });
+                    }
+                    $('#alert').html("<div role='alert' class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Error!</strong> " + respon.message + "<ol class='pl-3 m-0'>" + err + "</ol></div>");
+                }
+            });
+            return false;
+        }
+        $(this).addClass('was-validated');
+    });
+
+
+</script>
+
 @endsection

@@ -58,12 +58,12 @@
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Harga Vendor </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->harga_vendor}}</label>
+                                        <label class="ml-2 s-12">Rp. {{number_format($order->harga_vendor)}}</label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Harga Konsumen  </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->harga_wn}}</label>
+                                        <label class="ml-2 s-12">Rp. {{number_format($order->harga_wn)}}</label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Tanggal Order </strong></label>
@@ -84,22 +84,29 @@
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Jumlah Kuantiti </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->kuantiti}}</label>
+                                        <label class="ml-2 s-12">{{$order->kuantiti}} Pcs</label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Tangan Panjang </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->jumlah_panjang}}</label>
+                                        <label class="ml-2 s-12">{{$order->jumlah_panjang}} Pcs</label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Tangan Pendek </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->jumlah_pendek}}</label>
+                                        <label class="ml-2 s-12">{{$order->jumlah_pendek}} Pcs</label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Status </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->status}}</label>
+                                        <label class="ml-2 s-12">
+                                            @if($order->status == 0)
+                                                Belum Lunas
+                                            @else
+                                                Lunas
+                                            @endif
+
+                                        </label>
                                     </div>
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Keterangan </strong></label>
@@ -109,8 +116,21 @@
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Uang Muka </strong></label>
                                         <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->dp}}</label>
+                                        <label class="ml-2 s-12">Rp. {{number_format($order->dp)}}</label>
                                     </div>
+
+                                    <div class="row">
+                                        <label class="col-md-2 text-left s-12"><strong>Total Kotor </strong></label>
+                                        <label class="s-12">:</label>
+                                        <label class="ml-2 s-12">Rp. {{number_format($order->total_kotor)}}</label>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-2 text-left s-12"><strong>Total </strong></label>
+                                        <label class="s-12">:</label>
+                                        <label class="ml-2 s-12">Rp. {{number_format($order->total)}}</label>
+                                    </div>
+
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Gambar Design </strong></label>
                                         <label class="s-12">:</label>

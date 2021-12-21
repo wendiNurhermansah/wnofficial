@@ -20,7 +20,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card no-b">
-                    <div class="card-body">                      
+                    <div class="card-body">   
+                        <div class="table-responsive">                   
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <th width="30">No</th>
@@ -31,14 +32,16 @@
                                     <th>Dp</th>
                                     <th>Tanggal</th>
                                     <th>Jumlah</th>
-                                    <th>Alamat</th>
+                                    <th>Total</th>
+                                   
                                     <th>Status</th>
                                     <th>Invoice</th>
                                     <th>Aksi</th>
                                     
                                 </thead>
                                 <tbody></tbody>
-                            </table>                     
+                            </table> 
+                        </div>                    
                     </div>
                 </div>
             </div>
@@ -59,16 +62,18 @@ var table = $('#dataTable').dataTable({
        url: "{{ route('MasterPesanan.order.dataTable') }}",
        method: 'POST'
    },
+  
    columns: [
        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'kode', name: 'kode'},
        {data: 'nama', name: 'nama'},
        {data: 'no_hp', name: 'no_hp'},
-       {data: 'harga_wn', name: 'harga_wn'},
-       {data: 'dp', name: 'dp'},
+       {data: 'harga_wn', name: 'harga_wn', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
+       {data: 'dp', name: 'dp', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
        {data: 'tanggal_order', name: 'tanggal_order'},
        {data: 'kuantiti', name: 'kuantiti'},
-       {data: 'alamat', name: 'alamat'},
+      
+       {data: 'total', name: 'total', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
        {data: 'status', name: 'status'},
        {data: 'invoice', name: 'invoice'},
        {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
