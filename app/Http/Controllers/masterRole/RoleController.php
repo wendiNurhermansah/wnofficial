@@ -25,7 +25,7 @@ class RoleController extends Controller
         $role = Role::all();
         return DataTables::of($role)
         ->addColumn('permissions', function ($p) {
-            return   " <a href='" .route('MasterRole.role.addpermission',$p->id) . "' class='text-success pull-right' title='Edit Permissions'><i class='icon-clipboard-list2 mr-1'></i></a>";
+            return count($p->permissions) .  " <a href='" .route('MasterRole.role.addpermission',$p->id) . "' class='text-success pull-right' title='Edit Permissions'><i class='icon-clipboard-list2 mr-1'></i></a>";
         })
 
             ->addColumn('action', function ($p) {

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Role')
+@section('title', 'Akses')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
@@ -9,7 +9,7 @@
                 <div class="col">
                     <h4>
                         <i class="icon icon-key4 amber-text s-18"></i>
-                        Role
+                        Akses
                     </h4>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                                     <th width="30">No</th>
                                     <th>Nama</th>
                                     <th width="80">Guard Name</th>
-                                    <th width="80">Permissions</th>
+                                    <th width="80">Hak Akses</th>
                                     <th width="60"></th>
                                 </thead>
                                 <tbody></tbody>

@@ -20,18 +20,25 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card no-b">
-                    <div class="card-body">
-                        <div class="table-responsive">
+                    <div class="card-body">                      
                             <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <th width="30">No</th>
+                                    <th>Kode</th>
                                     <th>Nama</th>
-                                    <th width="80">Guard Name</th>
-                                    <th width="60"></th>
+                                    <th>No Hp</th>
+                                    <th>Harga</th>
+                                    <th>Dp</th>
+                                    <th>Tanggal</th>
+                                    <th>Jumlah</th>
+                                    <th>Alamat</th>
+                                    <th>Status</th>
+                                    <th>Invoice</th>
+                                    <th>Aksi</th>
+                                    
                                 </thead>
                                 <tbody></tbody>
-                            </table>
-                        </div>
+                            </table>                     
                     </div>
                 </div>
             </div>
@@ -40,4 +47,32 @@
     </div>
 </div>
 
+@endsection
+
+@section('script')
+<script type="text/javascript">
+var table = $('#dataTable').dataTable({
+   processing: true,
+   serverSide: true,
+   order: [ 0, 'asc' ],
+   ajax: {
+       url: "{{ route('MasterPesanan.order.dataTable') }}",
+       method: 'POST'
+   },
+   columns: [
+       {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
+       {data: 'kode', name: 'kode'},
+       {data: 'nama', name: 'nama'},
+       {data: 'no_hp', name: 'no_hp'},
+       {data: 'harga_wn', name: 'harga_wn'},
+       {data: 'dp', name: 'dp'},
+       {data: 'tanggal_order', name: 'tanggal_order'},
+       {data: 'kuantiti', name: 'kuantiti'},
+       {data: 'alamat', name: 'alamat'},
+       {data: 'status', name: 'status'},
+       {data: 'invoice', name: 'invoice'},
+       {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
+   ]
+});
+</script>
 @endsection

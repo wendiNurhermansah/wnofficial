@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Show Role')
+@section('title', 'Show Akses')
 
 @section('content')
 <div class="page has-sidebar-left bg-light">
@@ -8,14 +8,14 @@
             <div class="row">
                 <div class="col">
                     <h4>
-                        <i class="icon icon-key4 mr-2"></i>Show Role | {{ $role->name }}
+                        <i class="icon icon-key4 mr-2"></i>Show Akses | {{ $role->name }}
                     </h4>
                 </div>
             </div>
             <div class="row justify-content-between">
                 <ul class="nav nav-material nav-material-white responsive-tab" id="v-pegawai-tab" role="tablist">
                     <li>
-                        <a class="nav-link" href=""><i class="icon icon-arrow_back"></i>Semua Role</a>
+                        <a class="nav-link" href="{{route('MasterRole.role.index')}}"><i class="icon icon-arrow_back"></i>Semua Akses</a>
                     </li>
                 </ul>
             </div>

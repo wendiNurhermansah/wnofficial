@@ -40,6 +40,9 @@ Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group
 
 Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.')->group(function(){
     Route::resource('order', 'OrderController');
+    Route::post('order/dataTable', 'OrderController@dataTable')->name('order.dataTable');
+//tambah data order
+    Route::resource('tambah_order', 'Tambah_orderController');
 
  });
 

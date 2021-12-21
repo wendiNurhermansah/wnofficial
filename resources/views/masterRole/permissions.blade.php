@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Permissions')
+@section('title', 'Hak Akses')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
@@ -9,7 +9,7 @@
                 <div class="col">
                     <h4>
                         <i class="icon icon-clipboard-list2 text-success s-18"></i>
-                        Permissions
+                        Hak Akses
                     </h4>
                 </div>
             </div>

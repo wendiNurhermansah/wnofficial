@@ -35,7 +35,7 @@
         </a>
     </li>
     <li>
-        <a href=""><i class="icon icon-plus blue-text s-18"></i>
+        <a href="{{route('MasterPesanan.tambah_order.index')}}"><i class="icon icon-plus blue-text s-18"></i>
         <span>Tambah Order</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>

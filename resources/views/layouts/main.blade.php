@@ -106,7 +106,7 @@
                     <div class="user-panel p-3 light mb-2">
                         <div>
                             <div class="float-left image">
-                                <img class="user_avatar" src="{{asset('assets/img/dummy/u2.png')}}" alt="User Image">
+                                <img class="user_avatar" src="{{asset('assets/img/logo/WN_OFFICIAL.png')}}" alt="User Image">
                             </div>
                             <div class="float-left info">
                                 <h6 class="font-weight-light mt-2 mb-1">Admin</h6>
