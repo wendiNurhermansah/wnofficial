@@ -4,8 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c123bd5ee96131e50d65f0a5830f422d",
+    "content-hash": "4b44aa9225cd0e129799f67d85a753bb",
     "packages": [
+        {
+            "name": "alfa6661/laravel-autonumber",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alfa6661/laravel-autonumber.git",
+                "reference": "17ed12c8352c35b01f24c451f3cee6db36da3467"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alfa6661/laravel-autonumber/zipball/17ed12c8352c35b01f24c451f3cee6db36da3467",
+                "reference": "17ed12c8352c35b01f24c451f3cee6db36da3467",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.1|^6.0|^7.0",
+                "illuminate/database": "^5.1|^6.0|^7.0",
+                "illuminate/support": "^5.1|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alfa6661\\AutoNumber\\AutoNumberServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alfa6661\\AutoNumber\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alfa Adhitya",
+                    "email": "alfa2159@gmail.com"
+                }
+            ],
+            "description": "Laravel package to create autonumber for Eloquent model",
+            "homepage": "https://github.com/alfa6661/laravel-autonumber",
+            "keywords": [
+                "autonumber",
+                "eloquent",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/alfa6661/laravel-autonumber/issues",
+                "source": "https://github.com/alfa6661/laravel-autonumber/tree/1.2.4"
+            },
+            "time": "2020-05-05T06:38:51+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",

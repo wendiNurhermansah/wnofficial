@@ -37,7 +37,7 @@ class Tambah_orderController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-          'kode' => 'required',
+          
           'nama' => 'required',
           'no_hp' => 'required|max: 12',
           'alamat' => 'required',
@@ -51,10 +51,14 @@ class Tambah_orderController extends Controller
         
           
       ]);
-
+      
+      if ($request->hasFile('gambar')) {
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
         $request->file('gambar')->move("assets/img/design/", $nama_file);
+      }else{
+        $nama_file = '';
+      }
 
        Order::create([
         'kode' => $request->kode,

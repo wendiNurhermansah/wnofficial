@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="dark orange accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
@@ -40,8 +40,9 @@
                             <div class="float-right">
                                 <span class="icon icon-arrow-circle-o-up  s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Pengeluaran</strong></div>
-                            <h5 class="sc-counter mt-3">1000</h5>
+                            <div class="counter-title"><strong>Sedang Produksi</strong></div>
+                            <h5 class="sc-counter mt-3">{{$produksi}}</h5>
+                            <div class="counter-title">Pesanan</div>
                         </div>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Kotor</strong></div>
-                            <h5 class="sc-counter mt-3">1000</h5>
+                            <h5 class="sc-counter mt-3">{{$laba_kotor}}</h5>
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Bersih</strong></div>
-                            <h5 class="sc-counter mt-3">1000</h5
+                            <h5 class="sc-counter mt-3">{{$laba_bersih}}</h5
                         </div>
                     </div>
                 </div>

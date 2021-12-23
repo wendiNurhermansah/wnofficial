@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="dark orange accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row">
                 <div class="col">
@@ -41,12 +41,12 @@
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group m-0">
+                                                <!-- <div class="form-group m-0">
                                                     <label for="kode" class="col-form-label s-12 ">Kode <span class="text-danger ml-1">*</span></label>
                                                     <input type="text" name="kode" id="kode" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
-                                                </div>
+                                                </div> -->
 
-                                                <div class="form-group mt-3">
+                                                <div class="form-group mt-0">
                                                     <label for="nama" class="col-form-label s-12 ">Nama <span class="text-danger ml-1">*</span></label>
                                                     <input type="text" name="nama" id="nama" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
@@ -55,7 +55,7 @@
 
                                                 <div class="form-group mt-3">
                                                     <label for="no_hp" class="col-form-label s-12 ">Telepon <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="no_hp" id="no_hp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <input type="text" name="no_hp" id="no_hp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" maxlength="12" required/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
@@ -64,22 +64,22 @@
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="harga_vendor" class="col-form-label s-12 ">Harga Vendor </label>
-                                                    <input type="text" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
+                                                    <label for="harga_vendor" class="col-form-label s-12 ">Harga Vendor Dewasa</label>
+                                                    <input type="number" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
                                                 <div class="form-group mt-3">
                                                     <label for="harga_vendor_anak" class="col-form-label s-12 ">Harga Vendor Anak </label>
-                                                    <input type="text" name="harga_vendor_anak" id="harga_vendor_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
+                                                    <input type="number" name="harga_vendor_anak" id="harga_vendor_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="harga_wn" class="col-form-label s-12 ">Harga Consumen <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="harga_wn" id="harga_wn" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <label for="harga_wn" class="col-form-label s-12 ">Harga Consumen Dewasa </label>
+                                                    <input type="number" name="harga_wn" id="harga_wn" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="harga_anak" class="col-form-label s-12 ">Harga anak <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="harga_anak" id="harga_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <label for="harga_anak" class="col-form-label s-12 ">Harga Consumen anak </label>
+                                                    <input type="number" name="harga_anak" id="harga_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
@@ -107,7 +107,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-
                                                 <div class="form-group m-3">
                                                     <label class="col-form-label s-12">Status Pesanan <span class="text-danger ml-1">*</span></label>
                                                     <div class="col-md-12 p-0 bg-light">
@@ -119,20 +118,22 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                
                                                 
                                             </div>
 
                                             <div class="col-md-6">
 
                                                 <div class="form-group mt-0">
-                                                    <label for="gambar" class="col-form-label s-12 ">Design <span class="text-danger ml-1">*</span></label>
+                                                    <label for="gambar" class="col-form-label s-12 ">Design </label>
                                                     <input type="file" name="gambar" id="gambar" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
                                                 
                                                 
 
                                                 <div class="form-group mt-3">
-                                                    <label for="kuantiti" class="col-form-label s-12 ">Jumlah <span class="text-danger ml-1">*</span></label>
+                                                    <label for="kuantiti" class="col-form-label s-12 ">Jumlah Kuantiti <span class="text-danger ml-1">*</span></label>
                                                     <input type="number" name="kuantiti" id="kuantiti" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
 
@@ -146,36 +147,38 @@
                                                     <input type="number" name="jumlah_pendek" id="jumlah_pendek" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
                                                 <div class="form-group mt-3">
-                                                    <label for="qty_dewasa" class="col-form-label s-12 ">Jumlah Dewasa </label>
+                                                    <label for="qty_dewasa" class="col-form-label s-12 ">Jumlah Ukuran Dewasa </label>
                                                     <input type="number" name="qty_dewasa" id="qty_dewasa" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="qty_anak" class="col-form-label s-12 ">Jumlah Anak </label>
+                                                    <label for="qty_anak" class="col-form-label s-12 ">Jumlah Ukuran Anak </label>
                                                     <input type="number" name="qty_anak" id="qty_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="dp" class="col-form-label s-12 ">Uang Muka <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="dp" id="dp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="dp" id="dp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 
 
                                                 <div class="form-group mt-3">
-                                                    <label for="total_kotor" class="col-form-label s-12 ">Total ke vendor <span class="text-danger ml-1">*</span></label>
+                                                    <label for="total_kotor" class="col-form-label s-12 ">Total Vendor <span class="text-danger ml-1">*</span></label>
                                                     <input type="text" name="total_kotor" id="total_kotor" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
-                                                    <label for="total" class="col-form-label s-12 ">Total Ke Konsumen<span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="total" id="total" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <label for="total" class="col-form-label s-12 ">Total <span class="text-danger ml-1">*</span></label>
+                                                    <input type="number" name="total" id="total" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="ket" class="col-form-label s-12">Keterangan </label>
                                                     <textarea class="form-control r-0 light s-12 col-md-12" name="ket" id="ket" cols="5" rows="5"></textarea>
                                                 </div>
+
+                                                
 
                                                
                                             </div>

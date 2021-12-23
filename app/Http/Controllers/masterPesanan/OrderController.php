@@ -33,7 +33,7 @@ class OrderController extends Controller
             })
 
             ->editColumn('invoice', function($p){
-                return "<a href='#' onclick='remove(" . $p->id . ")' class='text-info btn btn-dark btn-sm' title='download'><i class='icon-print'></i>Invoice</a>";
+                return "<a href='#' onclick='remove(" . $p->id . ")' class='text-info btn btn-dark btn-sm' title='download'><i class='icon-download'></i></a>";
             })
 
             ->editColumn('status', function($p){
@@ -118,6 +118,10 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Order::destroy($id);
+
+        return response()->json([
+            'message' => 'data berhasil di hapus.'
+        ]);
     }
 }

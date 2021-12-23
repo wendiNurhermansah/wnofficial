@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="dark orange accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
@@ -75,9 +75,38 @@ var table = $('#dataTable').dataTable({
       
        {data: 'total', name: 'total', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
        {data: 'status', name: 'status'},
-       {data: 'invoice', name: 'invoice'},
+       {data: 'invoice', name: 'invoice', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
    ]
 });
+
+
+function remove(id){
+        $.confirm({
+            title: '',
+            content: 'Apakah Anda yakin akan menghapus data ini ?',
+            icon: 'icon icon-question amber-text',
+            theme: 'modern',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'red',
+            buttons: {
+                ok: {
+                    text: "ok!",
+                    btnClass: 'btn-primary',
+                    keys: ['enter'],
+                    action: function(){
+                        $.post("{{ route('MasterPesanan.order.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
+                           table.api().ajax.reload();
+                            if(id == $('#id').val()) add();
+                        }, "JSON").fail(function(){
+                            location.reload();
+                        });
+                    }
+                },
+                cancel: function(){}
+            }
+        });
+    }
 </script>
 @endsection
