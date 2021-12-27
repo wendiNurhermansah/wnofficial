@@ -44,6 +44,10 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
 //tambah data order
     Route::resource('tambah_order', 'Tambah_orderController');
 
+//jenis_barang
+    Route::resource('jenis_barang', 'JenisbarangController');
+    Route::post('jenis_barang/datatable', 'JenisbarangController@datatable')->name('jenis_barang.datatable');
+
  });
 
 

@@ -24,8 +24,8 @@ class OrderController extends Controller
         // dd($data);
         return DataTables::of($data)
             ->addColumn('action', function ($p) {
-                return "<a href='#' onclick='edit(" . $p->id . ")' title='Edit Permission'><i class='icon-pencil mr-1'></i></a>
-                <a href='#' onclick='remove(" . $p->id . ")' class='text-danger' title='Hapus Role'><i class='icon-remove'></i></a>";
+                return "<a href='" . route( 'MasterPesanan.order.edit', $p->id) . "' title='Edit Orderan'><i class='icon-pencil mr-1'></i></a>
+                <a href='#' onclick='remove(" . $p->id . ")' class='text-danger' title='Hapus Orderan'><i class='icon-remove'></i></a>";
             })
 
             ->editColumn('nama', function ($p) {
@@ -95,7 +95,9 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        // dd($order);
+        return view('pesanan.edit', compact('order'));
     }
 
     /**
@@ -107,7 +109,73 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+
+        if ($request->hasFile('gambar') != null) {
+            $file = $request->file('gambar');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $request->file('gambar')->move("assets/img/design/", $nama_file);
+
+            $order->update([
+                
+                'nama' => $request->nama,
+                'no_hp' => $request->no_hp,
+                'alamat' => $request->alamat,
+                'harga_vendor' => $request->harga_vendor,
+                'harga_wn' => $request->harga_wn,
+                'tanggal_order' => $request->tanggal_order,
+                'estimasi' => $request->estimasi,
+                'jenis_pemesanan' => $request->jenis_pemesanan,
+                'kuantiti' => $request->kuantiti,
+                'jumlah_panjang' => $request->jumlah_panjang,
+                'jumlah_pendek' => $request->jumlah_pendek,
+                'status' => $request->status,
+                'dp' => $request->dp,
+                'ket' => $request->ket,
+                'total' => $request->total,
+                'total_kotor' => $request->total_kotor,
+                'qty_anak' => $request->qty_anak,
+                'qty_dewasa' => $request->qty_dewasa,
+                'harga_vendor_anak' => $request->harga_vendor_anak,
+                'harga_anak' => $request->harga_anak,
+                'gambar' => $nama_file,
+    
+            ]);
+
+
+          }else{
+
+           $order->update([
+                
+                'nama' => $request->nama,
+                'no_hp' => $request->no_hp,
+                'alamat' => $request->alamat,
+                'harga_vendor' => $request->harga_vendor,
+                'harga_wn' => $request->harga_wn,
+                'tanggal_order' => $request->tanggal_order,
+                'estimasi' => $request->estimasi,
+                'jenis_pemesanan' => $request->jenis_pemesanan,
+                'kuantiti' => $request->kuantiti,
+                'jumlah_panjang' => $request->jumlah_panjang,
+                'jumlah_pendek' => $request->jumlah_pendek,
+                'status' => $request->status,
+                'dp' => $request->dp,
+                'ket' => $request->ket,
+                'total' => $request->total,
+                'total_kotor' => $request->total_kotor,
+                'qty_anak' => $request->qty_anak,
+                'qty_dewasa' => $request->qty_dewasa,
+                'harga_vendor_anak' => $request->harga_vendor_anak,
+                'harga_anak' => $request->harga_anak,
+                
+    
+            ]);
+          }
+
+        
+
+        return redirect('/MasterPesanan/order')->with('status', 'data berhasil diubah');
+
     }
 
     /**

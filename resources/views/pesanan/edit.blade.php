@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Tambah Data Order')
+@section('title', 'Edit Data Order')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col">
                     <h4>
-                        <i class="icon icon-plus mr-2"></i>
-                        Tambah Orderan
+                        <i class="icon icon-pencil mr-2"></i>
+                        Edit Orderan
                     </h4>
                 </div>
             </div>
@@ -31,9 +31,11 @@
                             <h6 class="card-header"><strong>Data Orderan</strong></h6>
                             <div class="card-body">
 
-                            <form class="needs-validation" id="form" method="POST"  enctype="multipart/form-data" novalidate>
-                                    {{ method_field('POST') }}
-                                    <input type="hidden" id="id" name="id"/>
+                            <form class="needs-validation" id="form" method="POST"  enctype="multipart/form-data" action="{{ route('MasterPesanan.order.update', $order->id) }}" novalidate>
+                                    {{ method_field('PATCH') }}
+                                    @csrf
+                                    <input type="hidden" id="id" name="id" value="{{$order->id}}"/>
+                                    <input type="hidden" name="kode" id="kode" value="{{$order->id}}" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                     
                                     <div class="form-row form-inline">
                                        
@@ -48,48 +50,48 @@
 
                                                 <div class="form-group mt-0">
                                                     <label for="nama" class="col-form-label s-12 ">Nama <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="nama" id="nama" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <input type="text" value="{{$order->nama}}" name="nama" id="nama" class="form-control r-0 light s-12 col-md-12"  autocomplete="off" required/>
                                                 </div>
 
                                                 
 
                                                 <div class="form-group mt-3">
                                                     <label for="no_hp" class="col-form-label s-12 ">Telepon <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="no_hp" id="no_hp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" maxlength="12" required/>
+                                                    <input type="text" value="{{$order->no_hp}}" name="no_hp" id="no_hp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" maxlength="12" required/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="no_hp" class="col-form-label s-12 ">Alamat <span class="text-danger ml-1">*</span></label>
-                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="alamat" id="alamat" cols="5" rows="5" required></textarea>
+                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="alamat" id="alamat" cols="5" rows="5" required>{{$order->alamat}}</textarea>
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="harga_vendor" class="col-form-label s-12 ">Harga Vendor Dewasa</label>
-                                                    <input type="text" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" onkeyup="convertToRupiah(this)" autocomplete="off"/>
+                                                    <input type="number" value="{{$order->harga_vendor}}" name="harga_vendor" id="harga_vendor" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
                                                 <div class="form-group mt-3">
                                                     <label for="harga_vendor_anak" class="col-form-label s-12 ">Harga Vendor Anak </label>
-                                                    <input type="text" name="harga_vendor_anak" id="harga_vendor_anak" class="form-control r-0 light s-12 col-md-12" onkeyup="convertToRupiah(this)" autocomplete="off"/>
+                                                    <input type="number" value="{{$order->harga_vendor_anak}}" name="harga_vendor_anak" id="harga_vendor_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="harga_wn" class="col-form-label s-12 ">Harga Consumen Dewasa </label>
-                                                    <input type="text" name="harga_wn" id="harga_wn" class="form-control r-0 light s-12 col-md-12" onkeyup="convertToRupiah(this)" autocomplete="off" />
+                                                    <input type="number" value="{{$order->harga_wn}}" name="harga_wn" id="harga_wn" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="harga_anak" class="col-form-label s-12 ">Harga Consumen anak </label>
-                                                    <input type="text" name="harga_anak" id="harga_anak" class="form-control r-0 light s-12 col-md-12" onkeyup="convertToRupiah(this)" autocomplete="off" />
+                                                    <input type="number" value="{{$order->harga_anak}}" name="harga_anak" id="harga_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="tanggal_order" class="col-form-label s-12 ">Tanggal Order <span class="text-danger ml-1">*</span></label>
-                                                    <input type="date" name="tanggal_order" id="tanggal_order" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <input type="date" value="{{$order->tanggal_order}}" name="tanggal_order" id="tanggal_order" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="estimasi" class="col-form-label s-12 ">Estimasi selesai <span class="text-danger ml-1">*</span></label>
-                                                    <input type="date" name="estimasi" id="estimasi" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <input type="date" value="{{$order->estimasi}}" name="estimasi" id="estimasi" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
 
                                                 <div class="form-group m-3">
@@ -97,11 +99,11 @@
                                                     <div class="col-md-12 p-0 bg-light">
                                                         <select class="select2 form-control r-0 light s-12" name="jenis_pemesanan" id="jenis_pemesanan" autocomplete="off" required>
                                                             <option value="">Pilih :</option>
-                                                            <option value="KAOS/T-SHIRT">KAOS / T-SHIRT</option>
-                                                            <option value="KEMEJA">KEMEJA</option>
-                                                            <option value="JAKET/HODDIE">JAKET / HODDIE</option>
-                                                            <option value="JERSEY">JERSEY</option>
-                                                            <option value="LAINNYA">LAINNYA</option>
+                                                            <option value="KAOS/T-SHIRT" {{ $order->jenis_pemesanan == 'KAOS/T-SHIRT' ? 'selected' : '' }}>KAOS / T-SHIRT</option>
+                                                            <option value="KEMEJA" {{ $order->jenis_pemesanan == 'KEMEJA' ? 'selected' : '' }}>KEMEJA</option>
+                                                            <option value="JAKET/HODDIE" {{ $order->jenis_pemesanan == 'JAKET/HODDIE' ? 'selected' : '' }}>JAKET / HODDIE</option>
+                                                            <option value="JERSEY" {{ $order->jenis_pemesanan == 'JERSEY' ? 'selected' : '' }}>JERSEY</option>
+                                                            <option value="LAINNYA" {{ $order->jenis_pemesanan == 'LAINNYA' ? 'selected' : '' }}>LAINNYA</option>
 
                                                             
                                                         </select>
@@ -112,8 +114,8 @@
                                                     <div class="col-md-12 p-0 bg-light">
                                                         <select class="select2 form-control r-0 light s-12" name="status" id="status" autocomplete="off" required>
                                                             <option value="">Pilih :</option>
-                                                            <option value="0">Belum Lunas</option>
-                                                            <option value="1">Lunas</option>
+                                                            <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Belum Lunas</option>
+                                                            <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Lunas</option>
                                                            
                                                         </select>
                                                     </div>
@@ -127,56 +129,56 @@
 
                                                 <div class="form-group mt-0">
                                                     <label for="gambar" class="col-form-label s-12 ">Design </label>
-                                                    <input type="file" name="gambar" id="gambar" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
-                                                    
+                                                    <input type="file" name="gambar"  id="gambar" class="form-control r-0 light s-12 col-md-12" autocomplete="off"/>
+                                                    <p>Nama File Design : {{$order->gambar}} </p>
                                                 </div>
                                                 
                                                 
 
-                                                <div class="form-group mt-3">
+                                                <div class="form-group mt-1">
                                                     <label for="kuantiti" class="col-form-label s-12 ">Jumlah Kuantiti <span class="text-danger ml-1">*</span></label>
-                                                    <input type="number" name="kuantiti" id="kuantiti" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
+                                                    <input type="number" value="{{$order->kuantiti}}" name="kuantiti" id="kuantiti" class="form-control r-0 light s-12 col-md-12" autocomplete="off" required/>
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="jumlah_panjang" class="col-form-label s-12 ">Tangan Panjang </label>
-                                                    <input type="number" name="jumlah_panjang" id="jumlah_panjang" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" value="{{$order->jumlah_panjang }}" name="jumlah_panjang" id="jumlah_panjang" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="jumlah_pendek" class="col-form-label s-12 ">Tangan Pendek </label>
-                                                    <input type="number" name="jumlah_pendek" id="jumlah_pendek" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="jumlah_pendek" value="{{$order->jumlah_pendek}}" id="jumlah_pendek" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
                                                 <div class="form-group mt-3">
                                                     <label for="qty_dewasa" class="col-form-label s-12 ">Jumlah Ukuran Dewasa </label>
-                                                    <input type="number" name="qty_dewasa" id="qty_dewasa" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="qty_dewasa" value="{{$order->qty_dewasa}}" id="qty_dewasa" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="qty_anak" class="col-form-label s-12 ">Jumlah Ukuran Anak </label>
-                                                    <input type="number" name="qty_anak" id="qty_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="qty_anak" value="{{$order->qty_anak}}" id="qty_anak" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="dp" class="col-form-label s-12 ">Uang Muka <span class="text-danger ml-1">*</span></label>
-                                                    <input type="number" name="dp" id="dp" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="dp" id="dp" value="{{$order->dp}}" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 
 
                                                 <div class="form-group mt-3">
                                                     <label for="total_kotor" class="col-form-label s-12 ">Total Vendor <span class="text-danger ml-1">*</span></label>
-                                                    <input type="text" name="total_kotor" id="total_kotor" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="text" name="total_kotor" value="{{$order->total_kotor}}" id="total_kotor" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="total" class="col-form-label s-12 ">Total <span class="text-danger ml-1">*</span></label>
-                                                    <input type="number" name="total" id="total" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
+                                                    <input type="number" name="total" id="total" value="{{$order->total}}" class="form-control r-0 light s-12 col-md-12" autocomplete="off" />
                                                 </div>
 
                                                 <div class="form-group mt-3">
                                                     <label for="ket" class="col-form-label s-12">Keterangan </label>
-                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="ket" id="ket" cols="5" rows="5"></textarea>
+                                                    <textarea class="form-control r-0 light s-12 col-md-12" name="ket" id="ket" cols="5" rows="5">{{$order->ket}}</textarea>
                                                 </div>
 
                                                 
@@ -188,9 +190,9 @@
                                             
                                            
                                             
-                                            <div class="mt-5" style="margin-left: 45%">
-                                                <button type="submit" class="btn btn-primary btn-sm" id="action"><i class="icon-save mr-2"></i>Simpan<span id="txtAction"></span></button>
-                                                <a class="btn btn-sm" onclick="add()" id="reset">Reset</a>
+                                            <div class="mt-4" style="margin-left: 47%">
+                                                <button type="submit" class="btn btn-success btn-sm" id="action"><i class="icon-save mr-2"></i>Ubah<span id="txtAction"></span></button>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -210,90 +212,6 @@
 @section ('script')
 
 <script type="text/javascript">
-
-//input format rupiah
-
-function convertToRupiah(objek) {
-	  separator = ".";
-	  a = objek.value;
-	  b = a.replace(/[^\d]/g,"");
-	  c = "";
-	  panjang = b.length; 
-	  j = 0; 
-	  for (i = panjang; i > 0; i--) {
-	    j = j + 1;
-	    if (((j % 3) == 1) && (j != 1)) {
-	      c = b.substr(i-1,1) + separator + c;
-	    } else {
-	      c = b.substr(i-1,1) + c;
-	    }
-	  }
-	  objek.value = c;
-
-	}       
-
-	function convertToAngka()
-	{	var nominal= document.getElementById("nominal").value;
-		var angka = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
-		document.getElementById("angka").innerHTML= angka;
-	}       
-
-	function convertToAngka()
-	{	var nominal1= document.getElementById("nominal1").value;
-		var angka1 = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
-		document.getElementById("angka1").innerHTML= angka;
-	}
-
-//create data
-function add(){
-        save_method = "add";
-        $('#form').trigger('reset');
-        $('#formTitle').html('Tambah Data');
-        $('input[name=_method]').val('POST');
-        $('#txtAction').html('');
-        $('#reset').show();
-        $('#preview').attr({ 'src': '-', 'alt': ''});
-        $('#changeText').html('Browse Image')
-        $('#username').focus();
-    }
-
-    add();
-    $('#form').on('submit', function (e) {
-        if ($(this)[0].checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        else{
-            $('#alert').html('');
-            url = "{{ route('MasterPesanan.tambah_order.store') }}",
-            $.ajax({
-                url : url,
-                type : 'POST',
-                data: new FormData(($(this)[0])),
-                contentType: false,
-                processData: false,
-                success : function(data) {
-                    add();
-                    console.log(data);
-                    $('#alert').html("<div role='alert' class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Success!</strong> " + data.message + "</div>");
-                    // table.api().ajax.reload();
-                  
-                },
-                error : function(data){
-                    err = '';
-                    respon = data.responseJSON;
-                    if(respon.errors){
-                        $.each(respon.errors, function( index, value ) {
-                            err = err + "<li>" + value +"</li>";
-                        });
-                    }
-                    $('#alert').html("<div role='alert' class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Error!</strong> " + respon.message + "<ol class='pl-3 m-0'>" + err + "</ol></div>");
-                }
-            });
-            return false;
-        }
-        $(this).addClass('was-validated');
-    });
 
 
 </script>

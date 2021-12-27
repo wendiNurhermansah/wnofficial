@@ -17,6 +17,11 @@
     </header>
 <div class="container-fluid relative animatedParent animateOnce">
     <div class="container-fluid my-3">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="card no-b">
@@ -29,10 +34,10 @@
                                     <th>Nama</th>
                                     <th>No Hp</th>
                                     <th>Harga</th>
-                                    <th>Dp</th>
-                                    <th>Tanggal</th>
                                     <th>Jumlah</th>
                                     <th>Total</th>
+                                    <th>Dp</th>
+                                    <th>Tanggal</th>
                                    
                                     <th>Status</th>
                                     <th>Invoice</th>
@@ -68,12 +73,12 @@ var table = $('#dataTable').dataTable({
        {data: 'kode', name: 'kode'},
        {data: 'nama', name: 'nama'},
        {data: 'no_hp', name: 'no_hp'},
-       {data: 'harga_wn', name: 'harga_wn', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
-       {data: 'dp', name: 'dp', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
-       {data: 'tanggal_order', name: 'tanggal_order'},
+       {data: 'harga_wn', name: 'harga_wn', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
        {data: 'kuantiti', name: 'kuantiti'},
+       {data: 'total', name: 'total', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
       
-       {data: 'total', name: 'total', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp' )},
+       {data: 'dp', name: 'dp', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
+       {data: 'tanggal_order', name: 'tanggal_order'},
        {data: 'status', name: 'status'},
        {data: 'invoice', name: 'invoice', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}

@@ -60,13 +60,14 @@ class Tambah_orderController extends Controller
         $nama_file = '';
       }
 
+     
        Order::create([
         'kode' => $request->kode,
         'nama' => $request->nama,
         'no_hp' => $request->no_hp,
         'alamat' => $request->alamat,
-        'harga_vendor' => $request->harga_vendor,
-        'harga_wn' => $request->harga_wn,
+        'harga_vendor' =>  str_replace(".", "", $request->harga_vendor),
+        'harga_wn' => str_replace(".", "", $request->harga_wn),
         'tanggal_order' => $request->tanggal_order,
         'estimasi' => $request->estimasi,
         'jenis_pemesanan' => $request->jenis_pemesanan,
