@@ -28,24 +28,26 @@
 
     <li class="header light"><strong>MASTER PESANAN</strong></li>
 
+    <li class="no-b">
+        <a href="{{route('MasterPesanan.jenis_barang.index')}}">
+            <i class="icon icon-list2 blue-text s-18"></i> <span>Jenis Barang</span>
+            <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+
     <li>
         <a href="{{route('MasterPesanan.order.index')}}"><i class="icon icon-list blue-text s-18"></i>
         <span>Orderan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
-    <li>
+    
+    
+    <!-- <li>
         <a href="{{route('MasterPesanan.tambah_order.index')}}"><i class="icon icon-plus blue-text s-18"></i>
         <span>Tambah Order</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
-    </li>
-
-    <li class="no-b">
-        <a href="{{route('MasterPesanan.jenis_barang.index')}}">
-            <i class="icon icon-list2 text-success s-18"></i> <span>Jenis Barang</span>
-            <i class="icon icon-angle-right s-18 pull-right"></i>
-        </a>
-    </li>
-
+    </li> -->
+    
 </ul>

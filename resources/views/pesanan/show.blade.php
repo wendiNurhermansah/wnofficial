@@ -55,16 +55,8 @@
                                         <label class="s-12">:</label>
                                         <label class="ml-2 s-12">{{$order->alamat}}</label>
                                     </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Harga Vendor </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">Rp. {{number_format($order->harga_vendor)}}</label>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Harga Konsumen  </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">Rp. {{number_format($order->harga_wn)}}</label>
-                                    </div>
+                                   
+                                   
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Tanggal Order </strong></label>
                                         <label class="s-12">:</label>
@@ -76,26 +68,9 @@
                                         <label class="s-12">:</label>
                                         <label class="ml-2 s-12">{{$order->estimasi}}</label>
                                     </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Jenis Pemesanan </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->jenis_pemesanan}}</label>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Jumlah Kuantiti </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->kuantiti}} Pcs</label>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Tangan Panjang </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->jumlah_panjang}} Pcs</label>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Tangan Pendek </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">{{$order->jumlah_pendek}} Pcs</label>
-                                    </div>
+                                    
+                                   
+                                    
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Status </strong></label>
                                         <label class="s-12">:</label>
@@ -119,24 +94,61 @@
                                         <label class="ml-2 s-12">Rp. {{number_format($order->dp)}}</label>
                                     </div>
 
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Total Kotor </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">Rp. {{number_format($order->total_kotor)}}</label>
-                                    </div>
-
-                                    <div class="row">
-                                        <label class="col-md-2 text-left s-12"><strong>Total </strong></label>
-                                        <label class="s-12">:</label>
-                                        <label class="ml-2 s-12">Rp. {{number_format($order->total)}}</label>
-                                    </div>
+                                   
 
                                     <div class="row">
                                         <label class="col-md-2 text-left s-12"><strong>Gambar Design </strong></label>
                                         <label class="s-12">:</label>
                                         <label class="ml-2 s-12"><img src="{{asset('assets/img/design/' . $order->gambar)}}" alt="" style="width: 300px;"></label>
                                     </div>
-                                
+
+
+                                    <div class="row">
+                                        <label class="col-md-2 text-left s-12"><strong>Rincian Order </strong></label>
+                                        <label class="s-12">:</label>
+                                        <table border="2">
+                                            <thead>
+
+                                           
+                                                <tr style="color: white;">
+                                                    <th style="width: 50px; text-align:center; background-color:orange;" >No</th>
+                                                    <th style="width: 250px; text-align:center; background-color:orange;">Jenis Orderan</th>
+                                                    <th style="width: 250px; text-align:center; background-color:orange;">Harga</th>
+                                                    <th style="width: 250px; text-align:center; background-color:orange;">Jumlah</th>
+                                                    <th style="width: 250px; text-align:center; background-color:orange;">Total</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+
+                                                @php
+
+                                                $no = 1;
+
+                                                @endphp
+
+                                                @foreach($jenis_orderan as $i)
+
+                                                <tr style="text-align: center;">
+                                                    <td>{{$no++}}</td>
+                                                    <td>{{$i->barang->nama_barang}}</td>
+                                                    <td>{{number_format($i->harga)}}</td>
+                                                    <td>{{$i->qty}}</td>
+                                                    <td>{{number_format($i->total)}}</td>
+                                                </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr style="text-align: center;">
+                                                    <td colspan="3" style="background-color: orange; color:white;">Total</td>
+                                                    <td>{{$order->qty_semua}}</td>
+                                                    <td>{{number_format($order->total_semua)}}</td>
+                                                </tr>
+                                            </tfoot>
+
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

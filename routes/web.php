@@ -41,6 +41,7 @@ Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group
 Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.')->group(function(){
     Route::resource('order', 'OrderController');
     Route::post('order/dataTable', 'OrderController@dataTable')->name('order.dataTable');
+    Route::get('order/barang/{id}', 'OrderController@barang')->name('order.barang');
 //tambah data order
     Route::resource('tambah_order', 'Tambah_orderController');
 

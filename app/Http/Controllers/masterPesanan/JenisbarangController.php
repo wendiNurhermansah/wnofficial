@@ -81,7 +81,9 @@ class JenisbarangController extends Controller
      */
     public function show($id)
     {
-        //
+        $jenis = Jenis_barang::find($id);
+
+        return $jenis;
     }
 
     /**

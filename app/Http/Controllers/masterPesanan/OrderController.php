@@ -5,6 +5,8 @@ namespace App\Http\Controllers\masterPesanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Jenis_barang;
+use App\Models\Jenis_orderan;
 use DataTables;
 
 class OrderController extends Controller
@@ -16,7 +18,20 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('pesanan.order');
+    
+
+        $barang = Jenis_barang::all();
+
+        // dd($barang);
+
+        return view('pesanan.order', compact('barang'));
+    }
+
+    public function barang($id)
+    {
+        $jenis = Jenis_barang::find($id);
+
+        return $jenis;
     }
 
     public function dataTable(){
@@ -24,7 +39,7 @@ class OrderController extends Controller
         // dd($data);
         return DataTables::of($data)
             ->addColumn('action', function ($p) {
-                return "<a href='" . route( 'MasterPesanan.order.edit', $p->id) . "' title='Edit Orderan'><i class='icon-pencil mr-1'></i></a>
+                return "
                 <a href='#' onclick='remove(" . $p->id . ")' class='text-danger' title='Hapus Orderan'><i class='icon-remove'></i></a>";
             })
 
@@ -70,7 +85,57 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+           
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required| max: 12',
+            'tanggal_order' => 'required',
+            'estimasi' => 'required',
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $request->file('gambar')->move("assets/img/design/", $nama_file);
+          }else{
+            $nama_file = '';
+          }
+
+        $order = new Order();
+        $order-> kode = $request->kode;
+        $order-> nama = $request->nama;
+        $order-> alamat = $request->alamat;
+        $order-> no_hp = $request->no_hp;
+        $order-> tanggal_order = $request->tanggal_order;
+        $order-> estimasi = $request->estimasi;
+        $order-> status = $request->status;
+        $order-> ket = $request->ket;
+        $order-> gambar = $nama_file;
+        $order-> total_semua = $request->total_semua;
+        $order-> qty_semua = $request->qty_semua;
+        $order-> dp = str_replace(".", "",$request->dp);
+        $order->save();
+
+        foreach($request->id_jenis_barang as $key => $id_jenis_barang){
+
+            $id_jenis_barang = new Jenis_orderan();
+            $id_jenis_barang-> id_orders = $order->id;
+            $id_jenis_barang-> id_jenis_barang = $request->id_jenis_barang[$key];
+            $id_jenis_barang-> harga = $request->harga[$key];
+            $id_jenis_barang-> qty = $request->qty[$key];
+            $id_jenis_barang-> total = $request->total[$key];
+            $id_jenis_barang->save();
+
+            
+            }
+
+
+        return response()->json([
+            'message' => 'Data Berhasil di tambahkan.'
+        ]);
+
+
     }
 
     /**
@@ -83,8 +148,9 @@ class OrderController extends Controller
     {
 
         $order = Order::find($id);
-        // dd($order);
-        return view('pesanan.show', compact('order'));
+        $jenis_orderan = Jenis_orderan::all()->where('id_orders', $id);
+        // dd($barang);
+        return view('pesanan.show', compact('order', 'jenis_orderan'));
     }
 
     /**

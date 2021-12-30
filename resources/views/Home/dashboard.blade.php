@@ -29,7 +29,7 @@
                                 <span class="icon icon-list  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Jumlah Seluruh Orderan</strong></div>
-                            <h5 class="sc-counter mt-3">{{$jumlah_order}}</h5>
+                            <h5 class="sc-counter mt-3"></h5>
                             <div class="counter-title">Pcs</div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <span class="icon icon-arrow-circle-o-up  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Sedang Produksi</strong></div>
-                            <h5 class="sc-counter mt-3">{{$produksi}}</h5>
+                            <h5 class="sc-counter mt-3">/h5>
                             <div class="counter-title">Pesanan</div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Kotor</strong></div>
-                            <h5 class="sc-counter mt-3">{{$laba_kotor}}</h5>
+                            <h5 class="sc-counter mt-3"></h5>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Bersih</strong></div>
-                            <h5 class="sc-counter mt-3">{{$laba_bersih}}</h5
+                            <h5 class="sc-counter mt-3"></h5>
                         </div>
                     </div>
                 </div>
