@@ -14,8 +14,11 @@ class CreateJenisOrderanTable extends Migration
     public function up()
     {
         Schema::create('jenis_orderan', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_orders');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_orders');
+            $table->foreign('id_orders')
+            ->references('id')->on('orders')
+            ->onDelete('cascade');
             $table->integer('id_jenis_barang');
             $table->integer('harga');
             $table->integer('qty');

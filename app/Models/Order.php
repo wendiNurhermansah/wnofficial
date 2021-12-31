@@ -10,7 +10,13 @@ class Order extends Model
    use AutoNumberTrait;
 
    protected $table = 'orders';
-   protected $guarded = ''; 
+   protected $fillable = ['id', 'nama', 'kode', 'gambar', 'alamat', 'no_hp', 'tanggal_order', 'estimasi', 'ket',
+                            'status', 'total_semua', 'qty_semua', 'dp']; 
+
+    public function jenis_orderan()
+    {
+         return $this->hasMany(Jenis_orderan::class, 'id_orders', 'id');
+    }
 
    public function getAutoNumberOptions()
    {

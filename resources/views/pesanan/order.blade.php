@@ -422,6 +422,10 @@ $(document).ready(function(){
         
     }
 
+
+    //format rupiah
+    
+
     //create data
 function add(){
         save_method = "add";
@@ -454,7 +458,7 @@ function add(){
                     add();
                     console.log(data);
                     $('#alert').html("<div role='alert' class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Success!</strong> " + data.message + "</div>");
-                    // table.api().ajax.reload();
+                    table.api().ajax.reload();
                   
                 },
                 error : function(data){
@@ -491,6 +495,35 @@ function remove(id){
                     keys: ['enter'],
                     action: function(){
                         $.post("{{ route('MasterPesanan.order.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
+                           table.api().ajax.reload();
+                            if(id == $('#id').val()) add();
+                        }, "JSON").fail(function(){
+                            location.reload();
+                        });
+                    }
+                },
+                cancel: function(){}
+            }
+        });
+    }
+
+    //edit status
+    function status(id){
+        $.confirm({
+            title: '',
+            content: 'Apakah Anda ingin merubah status Customer ?',
+            icon: 'icon icon-question amber-text',
+            theme: 'modern',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'red',
+            buttons: {
+                ok: {
+                    text: "Lunas",
+                    btnClass: 'btn-primary',
+                    keys: ['enter'],
+                    action: function(){
+                        $.post("{{ route('MasterPesanan.order.update', ':id') }}".replace(':id', id), {'_method' : 'PATCH'}, function(data) {
                            table.api().ajax.reload();
                             if(id == $('#id').val()) add();
                         }, "JSON").fail(function(){
