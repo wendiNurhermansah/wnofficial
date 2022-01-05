@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use DataTables;
 
 // Models
-use App\Models\User;
+use App\User;
 use App\Models\admin_detail;
 use App\Models\model_has_role;
 use Spatie\Permission\Models\Role;
@@ -98,7 +98,7 @@ class PenggunaController extends Controller
         $admin_details->save();
 
         // Tahap 3
-        $path    = 'App\Models\User';
+        $path    = 'App\User';
         $role_id = $request->role_id;
 
         $model_has_roles = new model_has_role();

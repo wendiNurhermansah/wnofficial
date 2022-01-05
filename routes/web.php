@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
@@ -42,6 +48,7 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
     Route::resource('order', 'OrderController');
     Route::post('order/dataTable', 'OrderController@dataTable')->name('order.dataTable');
     Route::get('order/barang/{id}', 'OrderController@barang')->name('order.barang');
+    Route::get('order/invoice/{id}', 'OrderController@invoice')->name('order.invoice');
 //tambah data order
     Route::resource('tambah_order', 'Tambah_orderController');
 
@@ -50,5 +57,7 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
     Route::post('jenis_barang/datatable', 'JenisbarangController@datatable')->name('jenis_barang.datatable');
 
  });
+
+
 
 

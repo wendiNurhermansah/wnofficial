@@ -48,7 +48,7 @@ class OrderController extends Controller
             })
 
             ->editColumn('invoice', function($p){
-                return "<a href='#' onclick='remove(" . $p->id . ")' class='text-info btn btn-success btn-sm' title='download'><i class='icon-download'></i></a>";
+                return "<a href='" . route( 'MasterPesanan.order.invoice', $p->id) . "'  class='text-info btn btn-success btn-sm' title='download'><i class='icon-eye'></i></a>";
             })
 
             ->editColumn('status', function($p){
@@ -204,5 +204,11 @@ class OrderController extends Controller
         return response()->json([
             'message' => 'data berhasil di hapus.'
         ]);
+    }
+
+    public function invoice($id){
+        $order = Order::find($id);
+        $jenis_orderan = Jenis_orderan::all()->where('id_orders', $id);
+        return view('invoice.invoice', compact('order', 'jenis_orderan'));
     }
 }

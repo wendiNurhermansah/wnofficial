@@ -258,12 +258,12 @@ var table = $('#dataTable').dataTable({
        {data: 'nama', name: 'nama'},
        {data: 'no_hp', name: 'no_hp'},
        
-       {data: 'qty_semua', name: 'qty_semua'},
+       {data: 'qty_semua', name: 'qty_semua', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'total_semua', name: 'total_semua', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
       
        
        {data: 'tanggal_order', name: 'tanggal_order'},
-       {data: 'status', name: 'status'},
+       {data: 'status', name: 'status', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'invoice', name: 'invoice', orderable: false, searchable: false, align: 'center', className: 'text-center'},
        {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
    ]

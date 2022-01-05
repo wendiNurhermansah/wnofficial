@@ -157,10 +157,8 @@
                         <div class="dropdown-menu p-4 dropdown-menu-right">
                             <div class="row box justify-content-between my-4">
                                 <div class="col">
-                                    <a href="#">
-                                        <i class="icon-apps purple lighten-2 avatar  r-5"></i>
-                                        <div class="pt-1">Logout</div>
-                                    </a>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action mt-2"><i class="mr-2 icon-power-off text-danger"></i>Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                                 </div>
                                
                             </div>
