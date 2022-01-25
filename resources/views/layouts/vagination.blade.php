@@ -38,18 +38,20 @@
 
     @can('barang')
 
-    <li class="no-b">
-        <a href="{{route('MasterPesanan.jenis_barang.index')}}">
-            <i class="icon icon-list2 blue-text s-18"></i> <span>Jenis Barang</span>
-            <i class="icon icon-angle-right s-18 pull-right"></i>
+   
+    <li>
+        <a href="{{route('MasterPesanan.list_orderan.index')}}"><i class="icon icon-list3 blue-text s-18"></i>
+        <span>List Orderan</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
+
 
     @endcan
 
     @can('orderan')
     <li>
-        <a href="{{route('MasterPesanan.order.index')}}"><i class="icon icon-list blue-text s-18"></i>
+        <a href=""><i class="icon icon-pencil blue-text s-18"></i>
         <span>Orderan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -58,11 +60,6 @@
     @endcan
     
     
-    <!-- <li>
-        <a href="{{route('MasterPesanan.tambah_order.index')}}"><i class="icon icon-plus blue-text s-18"></i>
-        <span>Tambah Order</span>
-        <i class="icon icon-angle-right s-18 pull-right"></i>
-        </a>
-    </li> -->
+    
     
 </ul>
