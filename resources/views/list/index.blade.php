@@ -21,6 +21,17 @@
         <div class="col-12">
             <div class="box">
                 <div class="box-header">
+
+                    <div  style="margin-left: 340px; margin-bottom: 50px;">
+                        <form action="">
+                            
+                            <div class="input-group w-50">
+                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                <button type="button" class="btn btn-outline-primary">search</button>
+                            </div>
+                           
+                        </form>
+                    </div>
                     
                     
                 </div>

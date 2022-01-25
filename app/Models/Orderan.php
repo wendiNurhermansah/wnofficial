@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Jenis_pesanan;
 
 class Orderan extends Model
 {
@@ -18,10 +19,16 @@ class Orderan extends Model
         'jumlah_pendek',
         'model_panjang',
         'model_pendek',
+        'gender_a',
+        'gender_b',
         'harga',
         'total',
         'ket',
         'created_at',
         'updated_at'
     ];
+
+    public function jenis_pesanan(){
+        return $this->belongsTo(Jenis_pesanan::class, 'jenis_pesanan_id');
+    }
 }
