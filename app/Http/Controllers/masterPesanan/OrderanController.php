@@ -131,14 +131,15 @@ class OrderanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $orderan = Orderan::with('jumlah_pesanan')->find($id);
+        $orderan = Orderan::find($id);
+        // dd($request->status);
+
+        $orderan->update([
+            
+            'status' => $request->status,
+        ]);
         // dd($orderan);
 
-        
-        $orderan->update([
-            'status' => $request->status, 
-        ]);
-       
         return redirect('/MasterPesanan/list_orderan')->with('status', 'data berhasil diubah');
 
 

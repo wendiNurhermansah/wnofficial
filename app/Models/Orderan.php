@@ -21,6 +21,7 @@ class Orderan extends Model
         'tanggal',
         'sub_total',
         'gambar',
+        'status',
         'created_at',
         'updated_at'
     ];

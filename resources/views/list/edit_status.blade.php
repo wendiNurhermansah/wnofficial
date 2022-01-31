@@ -30,19 +30,13 @@
                                     @csrf
                                     <input type="hidden" id="id" value="{{ $orderan->id }}" name="id"/>
                                     <h4 id="formTitle">Edit Status Orderan</h4><hr>
-
-                                    
-                                    
-                                        <div class="row">
+                                    <div class="row">
                                             <div class="col-md-6">
-                                                
-                                                    
-                                                
-
-                                                    <div class="form-group">
+                                                 <div class="form-group">
                                                                 
                                                         <div class="col-md-10 p-0 bg-light">
                                                             <label for="status" class="col-form-label s-12 ">STATUS</label>
+                                    
                                                             <select class="select2 form-control r-0 light s-12" name="status" id="stats"   autocomplete="off">
                                                                 <option value="">Pilih</option>
                                                                     <option value="1" {{ $orderan->status == 1 ? 'selected' : '' }}>Belum Lunas</option>
@@ -51,21 +45,16 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
-         
+        
                                             </div>
                                            
                                         </div>
                                         
 
                                         <div class="mt-3" style="margin-left: ">
-                                            <button type="submit" class="btn btn-success btn-sm" id="action"><i class="icon-save mr-2"></i>Rubah<span id="txtAction"></span></button>
+                                            <button type="submit" class="btn btn-success btn-sm" ><i class="icon-save mr-2"></i>Rubah<span id="txtAction"></span></button>
                                             
                                         </div>
-                                        
-                                        
-                                    
                                 </form>
                                 
                             </div>
