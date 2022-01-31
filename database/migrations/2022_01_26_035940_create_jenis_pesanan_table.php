@@ -15,7 +15,8 @@ class CreateJenisPesananTable extends Migration
     {
         Schema::create('jenis_pesanan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama')->nullable();
+            $table->string('harga')->nullable();
             $table->timestamps();
         });
     }

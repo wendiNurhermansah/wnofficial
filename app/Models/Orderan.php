@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Jenis_pesanan;
+use App\Models\Jumlah_orderan;
+use Alfa6661\AutoNumber\AutoNumberTrait;
 
 class Orderan extends Model
 {
+    use AutoNumberTrait;
+
     protected $table = 'orderan';
     protected $fillable = [
         'id',
@@ -14,21 +17,26 @@ class Orderan extends Model
         'nama_cs',
         'telepon',
         'alamat',
-        'jenis_pesanan_id',
-        'jumlah_panjang',
-        'jumlah_pendek',
-        'model_panjang',
-        'model_pendek',
-        'gender_a',
-        'gender_b',
-        'harga',
-        'total',
         'ket',
+        'tanggal',
+        'sub_total',
+        'gambar',
         'created_at',
         'updated_at'
     ];
 
-    public function jenis_pesanan(){
-        return $this->belongsTo(Jenis_pesanan::class, 'jenis_pesanan_id');
+    public function jumlah_pesanan()
+    {
+        return $this->belongsTo(Jumlah_orderan::class, 'id', 'id_orderan');
+    }
+
+    public static function getAutoNumberOptions()
+    {
+        return [
+            'kode' => [
+                'format' => 'WN?', // Format kode yang akan digunakan.
+                'length' => 5 // Jumlah digit yang akan digunakan sebagai nomor urut
+            ]
+        ];
     }
 }
