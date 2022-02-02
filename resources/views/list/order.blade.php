@@ -90,6 +90,10 @@
                                                     <label for="uang_muka" class="col-form-label s-12 ">UANG MUKA</label>
                                                     <input type="text" name="uang_muka" id="uang_muka" class="form-control r-0 light s-12 col-md-10" autocomplete="off"/>
                                                 </div>
+                                                <div class="form-group mt-3">
+                                                    <label for="hpp_produksi" class="col-form-label s-12 ">HPP PRODUKSI</label>
+                                                    <input type="text" name="hpp_produksi" id="hpp_produksi" class="form-control r-0 light s-12 col-md-10" autocomplete="off"/>
+                                                </div>
                                                 
                                         
                                             </div>

@@ -48,12 +48,16 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
     Route::resource('list_orderan', 'OrderanController');
     Route::get('orderan', 'OrderanController@order')->name('orderan.order');
     Route::get('pencarian', 'OrderanController@pencarian')->name('orderan.pencarian');
-    // Route::get('detail/{id}', 'OrderanController@detail')->name('list_orderan.detail');
+
 
     //jenispesanan
     Route::get('jenis_pesanan/pesanan/{id}', 'JenisPesananController@pesanan')->name('jenis_pesanan.pesanan');
     Route::resource('jenis_pesanan', 'JenisPesananController');
     Route::post('jenis_pesanan/api', 'JenisPesananController@api')->name('jenis_pesanan.api');
+
+    //invoice
+
+    Route::get('invoice/{id}', 'InvoiceController@index')->name('invoice.index');
 
  });
 

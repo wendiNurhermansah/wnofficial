@@ -35,7 +35,7 @@
                                                             
                                                             <div class="input-group w-50">
                                                                 <input type="search" class="form-control rounded" placeholder="Cari nama customer" name="pencarian"  aria-label="Search" aria-describedby="search-addon" />
-                                                                <input type="submit"  name="" id="" value="Cari">
+                                                                <input type="submit" class="btn btn-primary"  name="" id="" value="Cari">
                                                             </div>
                                                         
                                                         </form>
@@ -71,10 +71,10 @@
                                                             
                                                             <tr>
                                                                 <td>{{ $no++ }}</td>
-                                                                <td>{{ $item->kode }}</td>
-                                                                <td>{{ $item->nama_cs }}</td>
-                                                                <td>{{ $item->telepon }}</td>
-                                                                <td>{{ $item->jumlah_pesanan->Pesanan->nama }}</td>
+                                                                <td class="text-left">{{ $item->kode }}</td>
+                                                                <td class="text-left">{{ $item->nama_cs }}</td>
+                                                                <td class="text-left">{{ $item->telepon }}</td>
+                                                                <td class="text-left">{{ $item->jumlah_pesanan->Pesanan->nama }}</td>
                                                                 <td>
                                                                     @if ($item->status == 1)
                                                                         <button class="btn btn-danger btn-sm">Belum Lunas</button>
@@ -85,12 +85,12 @@
                                                                     
                                                                 </td>
                                                                 <td>
-                                                                    <a href="" class="btn btn-dark btn-sm"><i class="icon icon-download ml-2"></i>Download</a>
+                                                                    <a href="{{ route('MasterPesanan.invoice.index', $item->id) }}" class="btn btn-dark btn-sm"><i class="icon icon-download ml-2"></i>Download</a>
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{ route('MasterPesanan.list_orderan.show', $item->id) }}" class="text-primary mr-1" title="Lihat Detail"><i class="icon icon-eye ml-2"></i></a>
                                                                     <a href="{{ route('MasterPesanan.list_orderan.edit', $item->id) }}" class="text-dark" title="Edit Status"><i class="icon icon-pencil ml-2"></i></a>
-                                                                    <a href="" class="text-danger ml-1" title="Hapus Orderan"><i class="icon icon-remove ml-2"></i></a>
+                                                                    <a href="#" class="text-danger ml-1" onclick="remove('{{ $item->id }}')" title="Hapus Orderan"><i class="icon icon-remove ml-2"></i></a>
                                                                 </td>
                                                                 
                                                             </tr>
@@ -117,4 +117,40 @@
 
 </div>
 
+@endsection
+
+@section('script')
+
+<script type="text/javascript">
+
+function remove(id){
+        $.confirm({
+            title: '',
+            content: 'Apakah Anda yakin akan menghapus data ini ?',
+            icon: 'icon icon-question amber-text',
+            theme: 'modern',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'red',
+            buttons: {
+                ok: {
+                    text: "ok!",
+                    btnClass: 'btn-primary',
+                    keys: ['enter'],
+                    action: function(){
+                        $.post("{{ route('MasterPesanan.list_orderan.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
+                           location.reload();
+                            if(id == $('#id').val()) add();
+                        }, "JSON").fail(function(){
+                            location.reload();
+                        });
+                    }
+                },
+                cancel: function(){}
+            }
+        });
+    }
+
+</script>
+    
 @endsection

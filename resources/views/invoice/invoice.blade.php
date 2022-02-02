@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div  class="mt-4 mb-1">
-        <a class="btn btn-primary"  href="{{route('MasterPesanan.order.index')}}">Home</a> 
+        <a class="btn btn-primary"  href="{{route('MasterPesanan.list_orderan.index')}}">Home</a> 
         <a class="btn btn-dark" id="btn-Preview-Image" href="#">Convert Invoice Ke PNG</a> 
         <a id="klik_cetak" class="btn btn-info" href="#">Download Invoice</a>
         
@@ -43,9 +43,9 @@
                         </div>
                         <div class="col-md-4">
                            
-                           <h6 style="margin-top: 20px; margin-left: 40px;">KODE : {{$order->kode}}</h6>
-                           <h6 style="margin-LEFT: 40px; ">TANGGAL : {{$order->tanggal_order}}</h6>
-                           <h6 style="margin-LEFT: 40px;">ESTIMASI : {{$order->estimasi}}</h6>
+                           <h6 style="margin-top: 20px; margin-left: 40px;">KODE : {{$orderan->kode}}</h6>
+                           <h6 style="margin-LEFT: 40px; ">TANGGAL : {{$orderan->tanggal}}</h6>
+                           
     
                         </div>
                     </div>
@@ -59,19 +59,23 @@
                                 <strong>WN-OFFICIAL</strong>
                             </div>
                             
-                            <div>Paradise Serpong City, Babakan,Setu <br> 
-                                 KOTA TANGERANG SELATAN - BANTEN, ID 15315</div>
+                            <div>
+                                <p> Paradise Serpong City, Babakan,Setu  </p>
+                                
+                                <p>Kota Tangerang Selatan - Banten, Id 15315</p>
+
+                            </div>
                             <div>081214255669</div>
                         </div>
                         <div class="col-sm-4">
                             <h6 class="mb-3">Untuk:</h6>
                             <div>
-                                <strong>{{$order->nama}}</strong>
+                                <strong>{{$orderan->nama_cs}}</strong>
                             </div>
                             
-                            <div>{{$order->alamat}}</div>
+                            <div>{{$orderan->alamat}}</div>
                            
-                            <div>{{$order->no_hp}}</div>
+                            <div>{{$orderan->telepon}}</div>
                         </div>
                     </div>
                     <div class="table-responsive-sm">
@@ -80,6 +84,7 @@
                                 <tr>
                                     <th class="center">No</th>
                                     <th>Jenis Pesanan</th>
+                                    <th>Jenis Tangan</th>
                                     <th>Qty</th>
                                     <th class="right">Harga</th>
                                     <th class="right">Total</th>
@@ -92,8 +97,9 @@
                                 @foreach($jenis_orderan as $i)
                                 <tr>
                                     <td class="center">{{$no++}}</td>
-                                    <td class="left strong">{{$i->barang->nama_barang}}</td>
-                                    <td class="left">{{$i->qty}}</td>
+                                    <td class="left strong">{{$i->Pesanan->nama}}</td>
+                                    <td>{{$i->jenis_lengan}}</td>
+                                    <td class="left">{{$i->jumlah}}</td>
                                     <td class="right">{{number_format($i->harga)}}</td>
                                     
                                     <td class="right">{{number_format($i->total)}}</td>
@@ -108,20 +114,20 @@
                         <div class="col-lg-4 col-sm-5">
                             <h6 style="margin-top: 20px; color: red;">Terimakasih Atas Kepercayaan Anda Kepada Kami !!!</h6>
                         </div>
-                        <div class="col-lg-4 col-sm-5 mt-1" style="margin-left: 670px;">
-                            <table class="table table-clear">
+                        <div class="col-lg-4 col-sm-5 mt-1" style="margin-left: 690px;">
+                            <table class="table table-clear" style="margin-left: 35px;">
                                 <tbody>
                                     <tr>
                                         <td class="left">
                                             <strong>Subtotal</strong>
                                         </td>
-                                        <td class="right">{{number_format($order->total_semua)}}</td>
+                                        <td class="right">{{number_format($orderan->sub_total)}}</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
                                             <strong>Uang Muka</strong>
                                         </td>
-                                        <td class="right">{{number_format($order->dp)}}</td>
+                                        <td class="right">{{number_format($orderan->uang_muka)}}</td>
                                     </tr>
                                     
                                     <tr>
@@ -129,7 +135,7 @@
                                             <strong>Total</strong>
                                         </td>
                                         <td class="right">
-                                            <strong>{{number_format($order->total_semua-$order->dp)}}</strong>
+                                            <strong>{{number_format($orderan->sub_total-$orderan->uang_muka)}}</strong>
                                         </td>
                                     </tr>
                                 </tbody>

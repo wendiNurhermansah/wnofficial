@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Jumlah_orderan;
+use App\Models\Orderan;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.dashboard');
+        $jumlah_orderan = Orderan::count();
+        $produksi = Orderan::where('status', 1)->count();
+        $laba_kotor = Orderan::sum('hpp_produksi');
+        $bersih = Orderan::sum('sub_total');
+        $laba_bersih = $bersih-$laba_kotor;
+
+        $panjang = Jumlah_orderan::where('jenis_lengan', 'PANJANG')->sum('jumlah');
+        $pendek = Jumlah_orderan::where('jenis_lengan', 'PENDEK')->sum('jumlah');
+        // dd($pendek);
+
+        return view('home.dashboard', compact('jumlah_orderan', 'produksi', 'laba_kotor', 'laba_bersih', 'bersih', 'panjang', 'pendek'));
     }
 }

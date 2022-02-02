@@ -66,6 +66,7 @@ class OrderanController extends Controller
         $Orderan-> uang_muka = $request->uang_muka;
         $Orderan-> gambar = $nama_file;
         $Orderan-> status = $request->status;
+        $Orderan-> hpp_produksi = $request->hpp_produksi;
         $Orderan-> sub_total = str_replace(".", "",$request->sub_total);
         $Orderan->save();
 
@@ -154,7 +155,18 @@ class OrderanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orderan = Orderan::findOrFail($id);
+
+        
+        $orderan->delete();
+
+        // delete from table model_has_roles
+        Jumlah_orderan::whereid_orderan($orderan->id)->delete();
+
+       
+        return response()->json([
+            'message' => 'Data berhasil dihapus.'
+        ]);
     }
 
     public function pencarian(Request $request){
@@ -167,5 +179,10 @@ class OrderanController extends Controller
         ->paginate();
 
         return view('list.index', compact('orderan'));
+    }
+
+
+    public function invoice(){
+        return view('invoice.invoice');
     }
 }

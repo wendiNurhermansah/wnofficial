@@ -21,10 +21,11 @@ class CreateOrderanTable extends Migration
             $table->string('tanggal')->nullable();
             $table->string('telepon')->nullable();
             $table->string('ket')->nullable();
-            $table->string('sub_total')->nullable();
+            $table->string('sub_total')->nullable()->default(0);
             $table->string('gambar')->nullable();
             $table->string('status')->nullable();
-            $table->string('uang_muka')->nullable();
+            $table->string('uang_muka')->nullable()->default(0);
+            $table->string('hpp_produksi')->nullable()->default(0);
             $table->timestamps();
         });
     }

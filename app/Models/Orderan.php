@@ -22,6 +22,7 @@ class Orderan extends Model
         'sub_total',
         'gambar',
         'status',
+        'hpp_produksi',
         'created_at',
         'updated_at'
     ];

@@ -28,43 +28,72 @@
                             <div class="float-right">
                                 <span class="icon icon-list  s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Jumlah Seluruh Orderan</strong></div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <div class="counter-title"><strong>Seluruh Orderan</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $jumlah_orderan }}</h5>
+                            <div class="counter-title">Orderan</div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-3" style="cursor:pointer">
+                    <div class="counter-box white r-5 p-3"  style="height: 110%">
+                        <div class="p-4">
+                            <div class="float-right">
+                                <span class="icon icon-factory  s-48"></span>
+                            </div>
+                            <div class="counter-title"><strong>Sedang Produksi</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $produksi }}</h5>
+                            <div class="counter-title">Orderan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="cursor:pointer">
+                    <div class="counter-box white r-5 p-3"  style="height: 110%">
+                        <div class="p-4">
+                            <div class="float-right">
+                                <span class="icon icon-investment-3  s-48"></span>
+                            </div>
+                            <div class="counter-title"><strong>Laba Kotor</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $bersih }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="cursor:pointer">
+                    <div class="counter-box white r-5 p-3"  style="height: 110%">
+                        <div class="p-4">
+                            <div class="float-right">
+                                <span class="icon icon-money-bag  s-48"></span>
+                            </div>
+                            <div class="counter-title"><strong>Laba Bersih</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $laba_bersih }}</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row mt-2 mb-4" style="height: 100%">
+                <div class="col-md-6" style="cursor:pointer">
+                    <div class="counter-box white r-5 p-3"  style="height: 110%">
+                        <div class="p-4">
+                            <div class="float-right">
+                                <span class="icon icon-clipboard-list  s-48"></span>
+                            </div>
+                            <div class="counter-title"><strong>Seluruh Orderan Tangan Pendek</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $pendek }}</h5>
                             <div class="counter-title">Pcs</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" style="cursor:pointer">
+                <div class="col-md-6" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-arrow-circle-o-up  s-48"></span>
+                                <span class="icon icon-clipboard-list2 s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Sedang Produksi</strong></div>
-                            <h5 class="sc-counter mt-3">/h5>
-                            <div class="counter-title">Pesanan</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" style="cursor:pointer">
-                    <div class="counter-box white r-5 p-3"  style="height: 110%">
-                        <div class="p-4">
-                            <div class="float-right">
-                                <span class="icon icon-dollar  s-48"></span>
-                            </div>
-                            <div class="counter-title"><strong>Laba Kotor</strong></div>
-                            <h5 class="sc-counter mt-3"></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" style="cursor:pointer">
-                    <div class="counter-box white r-5 p-3"  style="height: 110%">
-                        <div class="p-4">
-                            <div class="float-right">
-                                <span class="icon icon-dollar  s-48"></span>
-                            </div>
-                            <div class="counter-title"><strong>Laba Bersih</strong></div>
-                            <h5 class="sc-counter mt-3"></h5>
+                            <div class="counter-title"><strong>Seluruh Orderan Tangan Panjang</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $panjang }}</h5>
+                            <div class="counter-title">Pcs</div>
                         </div>
                     </div>
                 </div>
