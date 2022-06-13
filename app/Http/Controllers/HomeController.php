@@ -30,6 +30,7 @@ class HomeController extends Controller
         $laba_kotor = Orderan::sum('hpp_produksi');
         $bersih = Orderan::sum('sub_total');
         $laba_bersih = $bersih-$laba_kotor;
+        // dd($laba_kotor);
 
         $panjang = Jumlah_orderan::where('jenis_lengan', 'PANJANG')->sum('jumlah');
         $pendek = Jumlah_orderan::where('jenis_lengan', 'PENDEK')->sum('jumlah');

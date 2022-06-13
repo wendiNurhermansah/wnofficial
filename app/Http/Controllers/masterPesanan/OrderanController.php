@@ -66,6 +66,7 @@ class OrderanController extends Controller
         $Orderan-> uang_muka = $request->uang_muka;
         $Orderan-> gambar = $nama_file;
         $Orderan-> status = $request->status;
+        $Orderan-> status_bayar = $request->status_bayar;
         $Orderan-> hpp_produksi = $request->hpp_produksi;
         $Orderan-> sub_total = str_replace(".", "",$request->sub_total);
         $Orderan->save();
@@ -138,10 +139,11 @@ class OrderanController extends Controller
         $orderan->update([
             
             'status' => $request->status,
+            'status_bayar' => $request->status_bayar,
         ]);
         // dd($orderan);
 
-        return redirect('/MasterPesanan/list_orderan')->with('status', 'data berhasil diubah');
+        return redirect('/MasterPesanan/list_orderan')->with('status', 'Data berhasil diubah');
 
 
         

@@ -54,13 +54,29 @@
                                                     <div class="form-group">
                                                                 
                                                         <div class="col-md-10 p-0 bg-light">
-                                                            <label for="status" class="col-form-label s-12 ">STATUS</label>
+                                                            <label for="status" class="col-form-label s-12 ">STATUS PRODUKSI</label>
                                                             <select class="select2 form-control r-0 light s-12" name="status" id="statsu"   autocomplete="off">
                                                                 <option value="">Pilih</option>
                                                                    
     
+                                                                    <option value="1">Sedang Produksi</option>
+                                                                    <option value="2">Selesai</option>
+                                                                        
+                                                                    
+                                                               
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                                
+                                                        <div class="col-md-10 p-0 bg-light">
+                                                            <label for="status_bayar" class="col-form-label s-12 ">STATUS PEMBAYARAN</label>
+                                                            <select class="select2 form-control r-0 light s-12" name="status_bayar" id="statsu_bayar"   autocomplete="off">
+                                                                <option value="">Pilih</option>
+                                                                   
+    
                                                                     <option value="1">Belum Lunas</option>
-                                                                    <option value="2">Sudah Lunas</option>
+                                                                    <option value="2">Lunas</option>
                                                                         
                                                                     
                                                                

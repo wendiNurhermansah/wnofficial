@@ -34,6 +34,20 @@
     </li>
     @endcan
 
+    <li class="header light"><strong>MASTER JENIS BARANG</strong></li>
+    @can('jenis_pesanan')
+        
+    
+
+    <li>
+        <a href="{{route('MasterPesanan.jenis_pesanan.index')}}"><i class="icon icon-clipboard3 red-text s-18"></i>
+        <span>Jenis Pesanan</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+
+    @endcan
+
     <li class="header light"><strong>MASTER PESANAN</strong></li>
 
     @can('barang')
@@ -49,23 +63,12 @@
 
     @endcan
 
-    @can('jenis_pesanan')
-        
     
-
-    <li>
-        <a href="{{route('MasterPesanan.jenis_pesanan.index')}}"><i class="icon icon-clipboard3 red-text s-18"></i>
-        <span>Jenis Pesanan</span>
-        <i class="icon icon-angle-right s-18 pull-right"></i>
-        </a>
-    </li>
-
-    @endcan
 
     @can('orderan')
     <li>
         <a href="{{route('MasterPesanan.orderan.order')}}"><i class="icon icon-clipboard-add2 green-text s-18"></i>
-        <span>Orderan</span>
+        <span>Order</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>

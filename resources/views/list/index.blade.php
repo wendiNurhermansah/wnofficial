@@ -35,7 +35,7 @@
                                                             
                                                             <div class="input-group w-50">
                                                                 <input type="search" class="form-control rounded" placeholder="Cari nama customer" name="pencarian"  aria-label="Search" aria-describedby="search-addon" />
-                                                                <input type="submit" class="btn btn-primary"  name="" id="" value="Cari">
+                                                                <input type="submit" class="btn btn-orange"  name="" id="" value="Cari">
                                                             </div>
                                                         
                                                         </form>
@@ -58,7 +58,8 @@
                                                             <th>NAMA CUSTOMER</th>
                                                             <th>TELEPON</th>
                                                             <th>JENIS PESANAN</th>
-                                                            <th>STATUS</th>
+                                                            <th>STATUS PRODUKSI</th>
+                                                            <th>STATUS BAYAR</th>
                                                             <th>INVOICE</th>
                                                             <th>TINDAKAN</th>
                                                         </thead>
@@ -77,10 +78,19 @@
                                                                 <td class="text-left">{{ $item->jumlah_pesanan->Pesanan->nama }}</td>
                                                                 <td>
                                                                     @if ($item->status == 1)
+                                                                        <button class="btn btn-warning btn-sm">Sedang Produksi</button>
+                                                                        
+                                                                    @else
+                                                                        <button class="btn btn-success btn-sm">Selesai</button>
+                                                                    @endif
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    @if ($item->status_bayar == 1)
                                                                         <button class="btn btn-danger btn-sm">Belum Lunas</button>
                                                                         
                                                                     @else
-                                                                        <button class="btn btn-success btn-sm">Sudah Lunas</button>
+                                                                        <button class="btn btn-success btn-sm">Lunas</button>
                                                                     @endif
                                                                     
                                                                 </td>
