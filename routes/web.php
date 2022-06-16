@@ -65,6 +65,10 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
 
  });
 
+ Route::prefix('MasterLaporan')->namespace('masterLaporan')->name('MasterLaporan.')->group(function(){
+    Route::resource('laporan', 'LaporanController');
+ });
+
 
 
 

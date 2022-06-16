@@ -76,10 +76,11 @@
     @endcan
 
     <li class="header light"><strong>MASTER LAPORAN</strong></li>
+
     @can('laporan')
         
     <li>
-        <a href="#"><i class="icon icon-print red-text s-18"></i>
+        <a href="{{ route('MasterLaporan.laporan.index') }}"><i class="icon icon-print red-text s-18"></i>
         <span>Laporan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
