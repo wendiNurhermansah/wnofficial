@@ -14,6 +14,14 @@
                     </h4>
                 </div>
             </div>
+            <div class="row justify-content-between">
+                <ul role="tablist" class="nav nav-material nav-material-white responsive-tab">
+                    <li>
+                        <a class="nav-link" href="{{route('MasterPesanan.list_orderan.index')}}"><i class="icon icon-arrow_back"></i>Kembali</a>
+                    </li>
+                    
+                </ul>
+            </div>
             
         </div>
     </header>

@@ -25,24 +25,30 @@
                         <div class="card no-b">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <div class="row mt-5">
+                                    <div class="row mt-3">
                                         <div class="col-12">
                                             <div class="box">
                                                 <div class="box-header">
 
-                                                    <div  style="margin-left: 340px; margin-bottom: 50px;">
+                                                    <div  style="margin-left: 340px; margin-bottom: 30px;">
                                                         <form action="{{route('MasterPesanan.orderan.pencarian')}}" method="GET">
                                                             
                                                             <div class="input-group w-50">
                                                                 <input type="search" class="form-control rounded" placeholder="Cari nama customer" name="pencarian"  aria-label="Search" aria-describedby="search-addon" />
-                                                                <input type="submit" class="btn btn-orange"  name="" id="" value="Cari">
+                                                                <input type="submit" class="btn orange ml-2"  name="" id="" value="cari" style="color: white">
                                                             </div>
+                                                            
                                                         
                                                         </form>
                                                     </div>
                                                     
                                                     
                                                 </div>
+                                                <div class="input-group w-50 mb-3">
+                                                    <a href="{{ route('MasterPesanan.orderan.cetak_pdf') }}" class="btn btn-light btn-sm" ><i class="icon icon-download text-success" ></i> PDF</a>
+                                                </div>
+                                                
+                                                
 
                                                 @if (session('status'))
                                                     <div class="alert alert-success">
@@ -58,6 +64,7 @@
                                                             <th>NAMA CUSTOMER</th>
                                                             <th>TELEPON</th>
                                                             <th>JENIS PESANAN</th>
+                                                            <th>TANGGAL</th>
                                                             <th>STATUS PRODUKSI</th>
                                                             <th>STATUS BAYAR</th>
                                                             <th>INVOICE</th>
@@ -76,6 +83,7 @@
                                                                 <td class="text-left">{{ $item->nama_cs }}</td>
                                                                 <td class="text-left">{{ $item->telepon }}</td>
                                                                 <td class="text-left">{{ $item->jumlah_pesanan->Pesanan->nama }}</td>
+                                                                <td class="text-left">{{ $item->tanggal }}</td>
                                                                 <td>
                                                                     @if ($item->status == 1)
                                                                         <button class="btn btn-warning btn-sm">Sedang Produksi</button>
@@ -95,7 +103,7 @@
                                                                     
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ route('MasterPesanan.invoice.index', $item->id) }}" class="btn btn-dark btn-sm"><i class="icon icon-download ml-2"></i>Download</a>
+                                                                    <a href="{{ route('MasterPesanan.invoice.index', $item->id) }}" class="btn btn-light btn-sm" ><i class="icon icon-download text-success" ></i> Unduh</a>
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{ route('MasterPesanan.list_orderan.show', $item->id) }}" class="text-primary mr-1" title="Lihat Detail"><i class="icon icon-eye ml-2"></i></a>

@@ -8,6 +8,7 @@ use App\Models\Jenis_pesanan;
 use App\Models\Jumlah_orderan;
 use App\Models\Orderan;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class OrderanController extends Controller
 {
@@ -186,5 +187,14 @@ class OrderanController extends Controller
 
     public function invoice(){
         return view('invoice.invoice');
+    }
+
+    public function cetak_pdf(){
+
+        $orderan = Orderan::all();
+        $pdf = PDF::loadview('pdf.cetak_pdf',['orderan'=>$orderan]);
+        $pdf->setPaper('A4', 'landscape');
+	    return $pdf->download('orderan.pdf');
+        // return view('pdf.cetak_pdf', compact('orderan'));
     }
 }

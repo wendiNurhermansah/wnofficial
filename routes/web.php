@@ -45,9 +45,13 @@ Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group
 });
 
 Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.')->group(function(){
+    //list pesanan
     Route::resource('list_orderan', 'OrderanController');
     Route::get('orderan', 'OrderanController@order')->name('orderan.order');
     Route::get('pencarian', 'OrderanController@pencarian')->name('orderan.pencarian');
+
+    //download PDF
+    Route::get('cetak_pdf', 'OrderanController@cetak_pdf')->name('orderan.cetak_pdf');
 
 
     //jenispesanan
