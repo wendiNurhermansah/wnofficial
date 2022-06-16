@@ -121,11 +121,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="{{asset('assets/img/logo/WN_OFFICIAL.png')}}" alt="">
+                            <img src="{{asset('assets/img/logo/WN_OFFICIAL.png')}}" style="border-radius: 10%" alt="">
                         </div>
                         <div class="col-lg-6 p-t-100">
                             <div class="text-white">
-                                <h1><strong>WN-OFFICIAL</strong> </h1>
+                                <h1><strong>SELAMAT DATANG DI APLIKASI</strong> </h1>
+                                <h2><strong>WN-OFFICIAL</strong> </h2>
+
                                 <h3>Login Data Orderan !</h3>
 
                             </div>
@@ -147,7 +149,7 @@
                                     </div>
                                     @endif
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Log In">
+                                <input type="submit" class="btn btn-primary btn-sm btn-block" value="Log In">
                             </form>
                         </div>
                     </div>

@@ -20,14 +20,14 @@
     @can('Hakses')
     <li class="no-b">
         <a href="{{route('MasterRole.permissions.index')}}">
-            <i class="icon icon-clipboard-list2 text-success s-18"></i> <span>Hak Akses</span>
+            <i class="icon icon-clipboard-list2 amber-text s-18"></i> <span>Hak Akses</span>
             <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
     @endcan
     @can('pengguna')
     <li>
-        <a href="{{route('MasterRole.pengguna.index')}}"><i class="icon icon-user blue-text s-18"></i>
+        <a href="{{route('MasterRole.pengguna.index')}}"><i class="icon icon-user amber-text s-18"></i>
         <span>Pengguna</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -40,7 +40,7 @@
     
 
     <li>
-        <a href="{{route('MasterPesanan.jenis_pesanan.index')}}"><i class="icon icon-clipboard3 red-text s-18"></i>
+        <a href="{{route('MasterPesanan.jenis_pesanan.index')}}"><i class="icon icon-clipboard3 text-primary s-18"></i>
         <span>Jenis Pesanan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -54,7 +54,7 @@
 
    
     <li>
-        <a href="{{route('MasterPesanan.list_orderan.index')}}"><i class="icon icon-clipboard-edit2 amber-text s-18"></i>
+        <a href="{{route('MasterPesanan.list_orderan.index')}}"><i class="icon icon-clipboard-edit2 text-success s-18"></i>
         <span>List Orderan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -67,14 +67,28 @@
 
     @can('orderan')
     <li>
-        <a href="{{route('MasterPesanan.orderan.order')}}"><i class="icon icon-clipboard-add2 green-text s-18"></i>
+        <a href="{{route('MasterPesanan.orderan.order')}}"><i class="icon icon-shopping-cart text-success s-18"></i>
         <span>Order</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
 
     @endcan
+
+    <li class="header light"><strong>MASTER LAPORAN</strong></li>
+    @can('laporan')
+        
+    <li>
+        <a href="#"><i class="icon icon-print red-text s-18"></i>
+        <span>Laporan</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+    @endcan
+
+    <li class="header light"><strong>LAIN-LAIN</strong></li>
     
+
     
     
     

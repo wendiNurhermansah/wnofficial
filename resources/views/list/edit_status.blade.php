@@ -32,9 +32,22 @@
                                     <h4 id="formTitle">Edit Status Orderan</h4><hr>
                                     <div class="row">
                                             <div class="col-md-6">
-                                                 <div class="form-group">
+                                                <div class="form-group" id="onchange">
                                                                 
-                                                        <div class="col-md-10 p-0 bg-light">
+                                                    <div class="col-md-10 p-0">
+                                                        <label for="" class="col-form-label s-12 ">RUBAH STATUS</label>
+                                
+                                                        <select class="select2 form-control r-0  s-12" name="" id="status_onchange" onchange="pilih()"   autocomplete="off">
+                                                                <option value="">Pilih</option>
+                                                                <option value="1">STATUS PRODUKSI</option>
+                                                                <option value="2">STATUS PEMBAYARAN</option>   
+                                                           
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group" id="status_produksi" style="display: none">
+                                                                
+                                                        <div class="col-md-10 p-0">
                                                             <label for="status" class="col-form-label s-12 ">STATUS PRODUKSI</label>
                                     
                                                             <select class="select2 form-control r-0 light s-12" name="status" id="stats"   autocomplete="off">
@@ -44,23 +57,24 @@
                                                                
                                                             </select>
                                                         </div>
+                                                 </div>
+                                                 <div class="form-group" id="status_bayar" style="display: none">
+                                                               
+                                                    <div class="col-md-10 p-0">
+                                                        <label for="status_bayar" class="col-form-label s-12 ">STATUS PEMBAYARAN</label>
+                                
+                                                        <select class="select2 form-control r-0 light s-12" name="status_bayar" id="status_bayar"   autocomplete="off">
+                                                                 <option value="">Pilih</option>
+                                                                <option value="1" {{ $orderan->status == 1 ? 'selected' : '' }}>Belum Lunas</option>
+                                                                <option value="2"  {{ $orderan->status == 2 ? 'selected' : '' }}>Lunas</option>   
+                                                           
+                                                        </select>
                                                     </div>
+                                                </div>
         
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                               
-                                                       <div class="col-md-10 p-0 bg-light">
-                                                           <label for="status_bayar" class="col-form-label s-12 ">STATUS PEMBAYARAN</label>
-                                   
-                                                           <select class="select2 form-control r-0 light s-12" name="status_bayar" id="status_bayar"   autocomplete="off">
-                                                                    <option value="">Pilih</option>
-                                                                   <option value="1" {{ $orderan->status == 1 ? 'selected' : '' }}>Belum Lunas</option>
-                                                                   <option value="2"  {{ $orderan->status == 2 ? 'selected' : '' }}>Lunas</option>   
-                                                              
-                                                           </select>
-                                                       </div>
-                                                   </div>
+                                                
        
                                            </div>
                                            
@@ -88,6 +102,23 @@
 @endsection
 
 @section('script')
+
+<script type="text/javascript">
+
+    
+
+    function pilih(){
+        if ($('#status_onchange').val() == 1) {
+            $('#status_produksi').show();
+           
+        }else if ($('#status_onchange').val() == 2){
+            $('#status_bayar').show();
+            
+        }
+        
+    }
+
+</script>
 
 
 

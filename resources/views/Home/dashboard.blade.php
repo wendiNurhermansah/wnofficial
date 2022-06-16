@@ -20,9 +20,9 @@
         <div class="tab-pane animated fadeInUpShort show active" id="v-pills-1">
 
             {{-- COUNT --}}
-            <div class="row mt-2 mb-4" style="height: 100%">
+            <div class="row mt-3 mb-4" style="height: 100%">
 
-                <div class="col-md-3" style="cursor:pointer">
+                <div class="col-md-4" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3" style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
@@ -36,7 +36,7 @@
                         
                     </div>
                 </div>
-                <div class="col-md-3" style="cursor:pointer">
+                {{-- <div class="col-md-3" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
@@ -47,40 +47,40 @@
                             <div class="counter-title">Orderan</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3" style="cursor:pointer">
+                </div> --}}
+                <div class="col-md-4" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
                                 <span class="icon icon-investment-3  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Kotor</strong></div>
-                            <h5 class="sc-counter mt-3">{{ $bersih }}</h5>
+                            <h5 class=" mt-3">Rp. {{ number_format("$bersih", 2) }}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" style="cursor:pointer">
+                <div class="col-md-4" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
                                 <span class="icon icon-money-bag  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Laba Bersih</strong></div>
-                            <h5 class="sc-counter mt-3">{{ $laba_bersih }}</h5>
+                            <h5 class="mt-3">Rp. {{  number_format("$laba_bersih", 2) }}</h5>
                         </div>
                     </div>
                 </div>
                 
             </div>
-            <div class="row mt-2 mb-4" style="height: 100%">
+            <div class="row mt-5 mb-4" style="height: 100%">
                 <div class="col-md-6" style="cursor:pointer">
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-clipboard-list  s-48"></span>
+                                <span class="icon icon-check  s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Seluruh Orderan Tangan Pendek</strong></div>
-                            <h5 class="sc-counter mt-3">{{ $pendek }}</h5>
+                            <div class="counter-title"><strong>Orderan Selesai</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $selesai }}</h5>
                             <div class="counter-title">Pcs</div>
                         </div>
                     </div>
@@ -89,10 +89,10 @@
                     <div class="counter-box white r-5 p-3"  style="height: 110%">
                         <div class="p-4">
                             <div class="float-right">
-                                <span class="icon icon-clipboard-list2 s-48"></span>
+                                <span class="icon icon-factory s-48"></span>
                             </div>
-                            <div class="counter-title"><strong>Seluruh Orderan Tangan Panjang</strong></div>
-                            <h5 class="sc-counter mt-3">{{ $panjang }}</h5>
+                            <div class="counter-title"><strong>Orderan Sedang Produksi</strong></div>
+                            <h5 class="sc-counter mt-3">{{ $produksi }}</h5>
                             <div class="counter-title">Pcs</div>
                         </div>
                     </div>
