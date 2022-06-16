@@ -37,7 +37,7 @@
                                                     <input type="date" name="tanggal_dari" id="tanggal_dari" class="form-control r-0 light s-12" autocomplete="off" required/>
                                                 </div>
         
-                                                <div class="ml-3 mt-3">S/d</div>
+                                                <div class="ml-3 mt-3">s/d</div>
                                                 
                                                 <div class="form-group mt-3 ml-3">
                                                     
