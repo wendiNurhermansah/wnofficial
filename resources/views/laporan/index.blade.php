@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 
 
-                                    <form class="needs-validation" action="" id="form" method="GET"  enctype="multipart/form-data" novalidate>
+                                    <form class="needs-validation" action="{{ route('MasterLaporan.laporan.print_laporan') }}" id="form" method="GET"  enctype="multipart/form-data" novalidate>
     
                                         <input type="hidden" id="id" name="id"/>
                                         <h4 id="formTitle">Laporan Orderan</h4><hr>
@@ -34,14 +34,14 @@
                                             <div class="form-row form-inline">
                                                 <div class="form-group mt-3">
                                                     
-                                                    <input type="date" name="tanggal_dari" id="tanggal_dari" class="form-control r-0 light s-12" autocomplete="off" required/>
+                                                    <input type="date" name="tanggaldari" id="tanggaldari" class="form-control r-0 light s-12" autocomplete="off" required/>
                                                 </div>
         
                                                 <div class="ml-3 mt-3">s/d</div>
                                                 
                                                 <div class="form-group mt-3 ml-3">
                                                     
-                                                    <input type="date" name="tanggal" id="tanggal" class="form-control r-0 light s-12" autocomplete="off" required/>
+                                                    <input type="date" name="tanggalsampai" id="tanggalsampai" class="form-control r-0 light s-12" autocomplete="off" required/>
                                                 </div>
             
                                             </div>

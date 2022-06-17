@@ -67,6 +67,7 @@ Route::prefix('MasterPesanan')->namespace('masterPesanan')->name('MasterPesanan.
 
  Route::prefix('MasterLaporan')->namespace('masterLaporan')->name('MasterLaporan.')->group(function(){
     Route::resource('laporan', 'LaporanController');
+    Route::get('print_laporan', 'LaporanController@print_laporan')->name('laporan.print_laporan');
  });
 
 
