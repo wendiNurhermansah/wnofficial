@@ -35,18 +35,18 @@ class LaporanController extends Controller
         $jumlahorderan = Orderan::where('status', '1')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->count();
         $jumlahorderan2 = Orderan::where('status', '2')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->count();
         
+        //get tanggal
         $tanggaldari = $request->tanggaldari;
         
         $tanggalsampai = $request->tanggalsampai;
 
         //laba
-        // $laba_kotor = Orderan::sum('hpp_produksi');
+
         $hpp = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('hpp_produksi');
         $laba_kotor = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('sub_total');
-        // dd($laba_kotor);
+        
         $laba_bersih = $laba_kotor-$hpp;
-        // dd($laba_bersih);
-
+       
         $pdf = PDF::loadview('laporan.print', [
             'orderan'           => $orderan,
             'orderan2'          => $orderan2, 
