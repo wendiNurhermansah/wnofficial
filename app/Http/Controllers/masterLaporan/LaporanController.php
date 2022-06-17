@@ -27,13 +27,22 @@ class LaporanController extends Controller
         if($request->tanggaldari == '' || $request->tanggalsampai == ''  || !isset($request->tanggaldari))
             return abort(403, "inputan tanggal tidak boleh kosong");
 
-        $orderan2 = Orderan::where('status', '1')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->get();
-        $orderan = Orderan::where('status', '2')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->get();
+        $orderan2 = Orderan::where('status', '1')
+                    ->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                    ->get();
+        $orderan = Orderan::where('status', '2')
+                    ->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                    ->get();
         
         //count
-        $jumlahorderan1 = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->count();
-        $jumlahorderan = Orderan::where('status', '1')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->count();
-        $jumlahorderan2 = Orderan::where('status', '2')->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->count();
+        $jumlahorderan1 = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                        ->count();
+        $jumlahorderan = Orderan::where('status', '1')
+                        ->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                        ->count();
+        $jumlahorderan2 = Orderan::where('status', '2')
+                        ->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                        ->count();
         
         //get tanggal
         $tanggaldari = $request->tanggaldari;
@@ -42,8 +51,10 @@ class LaporanController extends Controller
 
         //laba
 
-        $hpp = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('hpp_produksi');
-        $laba_kotor = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('sub_total');
+        $hpp = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                ->sum('hpp_produksi');
+        $laba_kotor = Orderan::whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])
+                    ->sum('sub_total');
         
         $laba_bersih = $laba_kotor-$hpp;
        
