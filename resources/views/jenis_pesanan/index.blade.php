@@ -35,7 +35,7 @@
                         <p class="text-danger mt-5">
                             *KET : <br>
                             - Jika Satuan di tambah Rp. 10.000.- <br>
-                            -Harga Bisa saja berubah setiap saat.
+                            - Harga Bisa saja berubah setiap saat.
                                    
                         </p>
                     </div>

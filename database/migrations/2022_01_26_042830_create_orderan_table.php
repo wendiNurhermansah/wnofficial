@@ -24,6 +24,7 @@ class CreateOrderanTable extends Migration
             $table->string('sub_total')->nullable()->default(0);
             $table->string('gambar')->nullable();
             $table->string('status')->nullable();
+            $table->string('status_bayar')->nullable();
             $table->string('uang_muka')->nullable()->default(0);
             $table->string('hpp_produksi')->nullable()->default(0);
             $table->timestamps();
