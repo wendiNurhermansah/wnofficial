@@ -54,11 +54,15 @@ class JenisPesananController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'harga_hpp' => 'required',
             'harga' => 'required'
         ]);
         
         Jenis_pesanan::create([
             'nama' => $request->nama,
+            
+            'harga_hpp'=> str_replace(".", "",$request->harga_hpp),
+
             'harga'=> str_replace(".", "",$request->harga)
 
         ]);
@@ -100,6 +104,7 @@ class JenisPesananController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'harga_hpp' => 'required',
             'harga' => 'required'
         ]);
 
@@ -107,6 +112,7 @@ class JenisPesananController extends Controller
         $jenis_pesanan = Jenis_pesanan::findOrfail($id);
         $jenis_pesanan->update([
             'nama' => $request->nama,
+            'harga_hpp'=> str_replace(".", "",$request->harga_hpp),
             'harga'=> str_replace(".", "",$request->harga)
         ]);
         return response()->json([

@@ -24,6 +24,7 @@ class Orderan extends Model
         'status',
         'status_bayar',
         'hpp_produksi',
+        'ongkir',
         'created_at',
         'updated_at'
     ];

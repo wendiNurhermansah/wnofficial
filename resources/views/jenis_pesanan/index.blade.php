@@ -26,18 +26,15 @@
                                 <thead>
                                     <th width="30">No</th>
                                     <th>Nama</th>
-                                    <th width="80">Harga</th>
-                                    <th width="60"></th>
+                                    <th>Harga Hpp</th>
+                                    <th>Harga Jual</th>
+
+                                    <th></th>
                                 </thead>
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <p class="text-danger mt-5">
-                            *KET : <br>
-                            - Jika Satuan di tambah Rp. 10.000.- <br>
-                            - Harga Bisa saja berubah setiap saat.
-                                   
-                        </p>
+                       
                     </div>
                 </div>
             </div>
@@ -56,7 +53,11 @@
                                         <input type="text" name="nama" id="nama" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
                                     </div>
                                     <div class="form-group mt-2">
-                                        <label for="harga" class="col-form-label s-12 col-md-4">Harga</label>
+                                        <label for="harga_hpp" class="col-form-label s-12 col-md-4">Harga Hpp</label>
+                                        <input type="text" name="harga_hpp" id="harga_hpp" onkeyup="convertToRupiah(this)" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="harga" class="col-form-label s-12 col-md-4">Harga Jual</label>
                                         <input type="text" name="harga" id="harga" onkeyup="convertToRupiah(this)" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
                                     </div>
                                     <div class="mt-2" style="margin-left: 34%">
@@ -88,6 +89,7 @@
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
             {data: 'nama', name: 'nama'},
+            {data: 'harga_hpp', name: 'harga_hpp', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
             {data: 'harga', name: 'harga', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp ' )},
             
             {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
@@ -144,6 +146,7 @@
         $.get("{{ route('MasterPesanan.jenis_pesanan.edit', ':id') }}".replace(':id', id), function(data){
             $('#id').val(data.id);
             $('#nama').val(data.nama).focus();
+            $('#harga_hpp').val(data.harga_hpp);
             $('#harga').val(data.harga);
         }, "JSON").fail(function(){
             reload();

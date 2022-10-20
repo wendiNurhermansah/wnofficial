@@ -111,17 +111,21 @@
                         </table>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-sm-5">
-                            <h6 style="margin-top: 20px; color: red;">Terimakasih Atas Kepercayaan Anda Kepada Kami !!!</h6>
-                        </div>
+                       
                         <div class="col-lg-4 col-sm-5 mt-1" style="margin-left: 690px;">
-                            <table class="table table-clear" style="margin-left: 35px;">
+                            <table class="table table-clear" style="margin-left: 55px;">
                                 <tbody>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>Ongkir</strong>
+                                        </td>
+                                        <td class="right">{{number_format($orderan->ongkir)}}</td>
+                                    </tr>
                                     <tr>
                                         <td class="left">
                                             <strong>Subtotal</strong>
                                         </td>
-                                        <td class="right">{{number_format($orderan->sub_total)}}</td>
+                                        <td class="right">{{number_format($orderan->sub_total+$orderan->ongkir)}}</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
@@ -135,7 +139,7 @@
                                             <strong>Total</strong>
                                         </td>
                                         <td class="right">
-                                            <strong>{{number_format($orderan->sub_total-$orderan->uang_muka)}}</strong>
+                                            <strong>{{number_format($orderan->sub_total+$orderan->ongkir-$orderan->uang_muka)}}</strong>
                                         </td>
                                     </tr>
                                 </tbody>

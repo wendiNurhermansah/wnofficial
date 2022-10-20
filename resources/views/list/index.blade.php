@@ -45,7 +45,7 @@
                                                     
                                                 </div>
                                                 <div class="input-group w-50 mb-3">
-                                                    <a href="{{ route('MasterPesanan.orderan.cetak_pdf') }}" class="btn btn-light btn-sm" ><i class="icon icon-download text-success" ></i> PDF</a>
+                                                    <a href="{{ route('MasterPesanan.orderan.cetak_pdf') }}" target="_blank" class="btn btn-light btn-sm" ><i class="icon icon-download text-success" ></i> PDF</a>
                                                 </div>
                                                 
                                                 

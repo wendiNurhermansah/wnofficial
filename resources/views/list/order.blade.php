@@ -37,17 +37,20 @@
                                                 
                                                     
                                                     <div class="form-group mt-3">
-                                                        <label for="nama_cs" class="col-form-label s-12 ">NAMA CUSTOMER</label>
+                                                        <label for="nama_cs" class="col-form-label s-12 ">NAMA CUSTOMER <span
+                                                            class="text-danger fs-12">*</span></label>
                                                         <input type="text" name="nama_cs" id="nama_cs" class="form-control r-0 light s-12 col-md-10" autocomplete="off" required/>
                                                     </div>
 
                                                     <div class="form-group m-0">
-                                                        <label for="tanggal" class="col-form-label s-12">TANGGAL</label>
+                                                        <label for="tanggal" class="col-form-label s-12">TANGGAL <span
+                                                            class="text-danger fs-12">*</span></label>
                                                         <input type="date" name="tanggal" id="tanggal" class="form-control r-0 light s-12 col-md-10" autocomplete="off" required/>
                                                     </div>
 
                                                     <div class="form-group mt-3">
-                                                        <label for="alamat" class="col-form-label s-12 ">ALAMAT</label>
+                                                        <label for="alamat" class="col-form-label s-12 ">ALAMAT <span
+                                                            class="text-danger fs-12">*</span></label>
                                                         <textarea name="alamat" id="" class="form-control r-0 light s-12 col-md-10" cols="20" rows="5" required></textarea>
                                                     </div>
 
@@ -67,6 +70,9 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
+
+                                                    
                                                     <div class="form-group">
                                                                 
                                                         <div class="col-md-10 p-0 bg-light">
@@ -83,13 +89,19 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
+                                                    <div class="form-group m-0">
+                                                        <label for="ongkir" class="col-form-label s-12">Ongkir</label>
+                                                        <input type="text" name="ongkir" id="ongkir" onkeyup="convertToRupiah(this)"  class="form-control r-0 light s-12 col-md-10" autocomplete="off" required/>
+                                                    </div>
                                                     
                                                     
          
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group mt-3">
-                                                    <label for="telepon" class="col-form-label s-12 ">TELEPON</label>
+                                                    <label for="telepon" class="col-form-label s-12 ">TELEPON <span
+                                                        class="text-danger fs-12">*</span></label>
                                                     <input type="text" name="telepon" id="telepon" class="form-control r-0 light s-12 col-md-10" autocomplete="off" required/>
                                                 </div>
                                                 <div class="form-group mt-3">
@@ -107,7 +119,7 @@
                                                     <input type="text" name="uang_muka" id="uang_muka" class="form-control r-0 light s-12 col-md-10" autocomplete="off"/>
                                                 </div>
                                                 <div class="form-group mt-3">
-                                                    <label for="hpp_produksi" class="col-form-label s-12 ">HPP PRODUKSI</label>
+                                                    <label for="hpp_produksi" class="col-form-label s-12 ">HARGA HPP</label>
                                                     <input type="text" name="hpp_produksi" id="hpp_produksi" class="form-control r-0 light s-12 col-md-10" autocomplete="off"/>
                                                 </div>
                                                 
@@ -178,6 +190,34 @@
 @section('script')
 
 <script type="text/javascript">
+
+    function convertToRupiah(objek) {
+	  separator = ".";
+	  a = objek.value;
+	  b = a.replace(/[^\d]/g,"");
+	  c = "";
+	  panjang = b.length; 
+	  j = 0; 
+	  for (i = panjang; i > 0; i--) {
+	    j = j + 1;
+	    if (((j % 3) == 1) && (j != 1)) {
+	      c = b.substr(i-1,1) + separator + c;
+	    } else {
+	      c = b.substr(i-1,1) + c;
+	    }
+	  }
+	  objek.value = c;
+	}       
+	function convertToAngka()
+	{	var nominal= document.getElementById("nominal").value;
+		var angka = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
+		document.getElementById("angka").innerHTML= angka;
+	}       
+	function convertToAngka()
+	{	var nominal1= document.getElementById("nominal1").value;
+		var angka1 = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
+		document.getElementById("angka1").innerHTML= angka;
+	}
 
     //format rupiah
     function addPeriod(nStr)

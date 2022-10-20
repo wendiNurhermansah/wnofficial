@@ -20,7 +20,7 @@ class OrderanController extends Controller
     public function index(){
 
         
-        $orderan = Orderan::with('jumlah_pesanan')->orderBy('status')->paginate(25);
+        $orderan = Orderan::with('jumlah_pesanan')->orderBy('kode','DESC')->paginate(25);
         // dd($orderan);
 
         return view('list.index', compact('orderan'));
@@ -51,6 +51,12 @@ class OrderanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_cs' => 'required',
+            'tanggal' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+        ]);
         
         $file = $request->file('gambar');
         $nama_file = time()."_".$file->getClientOriginalName();
@@ -70,6 +76,7 @@ class OrderanController extends Controller
         $Orderan-> status_bayar = $request->status_bayar;
         $Orderan-> hpp_produksi = $request->hpp_produksi;
         $Orderan-> sub_total = str_replace(".", "",$request->sub_total);
+        $Orderan-> ongkir = str_replace(".", "",$request->ongkir);
         $Orderan->save();
 
         foreach($request->jenis_pesanan as $key => $jumlah_orderan){
@@ -191,10 +198,10 @@ class OrderanController extends Controller
 
     public function cetak_pdf(){
 
-        $orderan = Orderan::all();
+        $orderan = Orderan::orderBy('kode', 'DESC')->get();
         $pdf = PDF::loadview('pdf.cetak_pdf',['orderan'=>$orderan]);
         $pdf->setPaper('A4', 'landscape');
-	    return $pdf->download('orderan.pdf');
+	    return $pdf->stream('orderan.pdf');
         // return view('pdf.cetak_pdf', compact('orderan'));
     }
 }
